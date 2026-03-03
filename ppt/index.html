@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Project Architect AI - Universal Bootstrap Prompt</title>
+  <meta name="description"
+    content="Bootstrapping project architecture and AI agent configuration for Cursor, Claude Code, and Antigravity">
+  <meta name="author" content="Samuel Toma">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- reveal.js CSS (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/black.css" id="theme">
+  <!-- Code Syntax Highlighting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/highlight/monokai.css">
+  <!-- Custom Styling -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slide-bg-pattern"></div>
+    <div class="slides">
+
+      <!-- Slide 1: Title -->
+      <section>
+        <div class="version-badge">v5.1 | March 2026</div>
+        <h1 class="gradient-text">Project Architect AI</h1>
+        <h2 class="subtitle">Universal Bootstrap Prompt</h2>
+        <p style="font-size: 1.1em; color: var(--text-primary); margin-top: 1em;">
+          Bootstrapping project-specific documentation, AI agent configuration, rules, skills, and workflows for
+          <strong>any repository</strong>.
+        </p>
+        <div class="phase-flow" style="justify-content: center; margin-top: 2em;">
+          <span class="badge badge-blue">Cursor</span>
+          <span class="badge badge-purple">Claude Code</span>
+          <span class="badge badge-orange">Antigravity</span>
+        </div>
+        <aside class="notes">
+          Welcome everyone! Today I want to show you the Universal Bootstrap Prompt that we've been working on. It's a
+          comprehensive approach to getting your AI coding agents—Cursor, Claude Code, and Antigravity—fully configured
+          and aligned with your specific project architecture.
+        </aside>
+      </section>
+
+      <!-- Slide 2: The Core Problem -->
+      <section>
+        <h2>The Core Problem</h2>
+        <div class="grid-2">
+          <div class="card" style="border-color: rgba(244,114,182,0.4);">
+            <h3 style="color: var(--accent-pink);">Generic Agents</h3>
+            <ul>
+              <li>Hallucinate dependencies</li>
+              <li>Break architectural boundaries</li>
+              <li>Ignore security patterns</li>
+              <li>Waste tokens guessing context</li>
+            </ul>
+          </div>
+          <div class="card fragment" style="border-color: rgba(52,211,153,0.4);">
+            <h3 style="color: var(--accent-green);">Architected Agents</h3>
+            <ul>
+              <li>Respect service boundaries</li>
+              <li>Follow project-specific rules</li>
+              <li>Use established auth flows</li>
+              <li>Execute defined workflows</li>
+            </ul>
+          </div>
+        </div>
+        <p class="fragment" style="text-align: center; margin-top: 1em; font-size: 0.9em;">
+          <strong>Context Engineering</strong> is the difference between a Junior dev who needs constant supervision,
+          and a Senior dev who "gets it."
+        </p>
+        <aside class="notes">
+          Why do we need this? If you just drop an AI agent into a mid-to-large codebase, it tends to act like a Junior
+          developer on day one. It guesses dependencies, hallucinates file structures, and ignores your security models.
+          By giving the agent a structured architecture map—what we call Context Engineering—it transforms into a Senior
+          developer that respects boundaries and established patterns.
+        </aside>
+      </section>
+
+      <!-- Slide 3: What is the Bootstrap Prompt? -->
+      <section>
+        <h2 class="gradient-text-2">What is the Bootstrap Prompt?</h2>
+        <p>A single, massive 1000+ line prompt that acts as a <strong>Master Orchestrator</strong> to jumpstart your
+          project's AI infrastructure.</p>
+
+        <div class="grid-3" style="margin-top: 1.5em;">
+          <div class="card fragment">
+            <h3 style="color: var(--accent-cyan);">1. Discovery</h3>
+            <p>Analyzes your repository (services, DBs, auth, infrastructure).</p>
+          </div>
+          <div class="card fragment">
+            <h3 style="color: var(--accent-blue);">2. Documentation</h3>
+            <p>Generates 9 canonical architecture markdown files.</p>
+          </div>
+          <div class="card fragment">
+            <h3 style="color: var(--accent-purple);">3. Tool Config</h3>
+            <p>Adapts the context for Cursor, Claude Code, and Antigravity.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          So what is the prompt? It's a huge set of instructions—over 1200 lines—that you paste into an empty agent
+          chat. It acts as a Master Orchestrator. First, it discovers how your project is built. Second, it documents
+          that architecture. And third, it translates that documentation into the specific configuration formats needed
+          by whatever AI tool you use.
+        </aside>
+      </section>
+
+      <!-- Slide 4: The Agent Personas -->
+      <section>
+        <h2>Four Dedicated Personas</h2>
+        <table style="width: 100%;">
+          <tr>
+            <th style="width: 25%;">Role</th>
+            <th style="width: 35%;">Competencies</th>
+            <th style="width: 40%;">Ensures That...</th>
+          </tr>
+          <tr>
+            <td style="color: var(--accent-orange); font-weight: bold;">Master Orchestrator</td>
+            <td>Execution, parallelization, constraints</td>
+            <td>Phases execute in order, limits are respected.</td>
+          </tr>
+          <tr class="fragment">
+            <td style="color: var(--accent-blue); font-weight: bold;">Docs Architect</td>
+            <td>Structure, visual flow, terminology</td>
+            <td>Documents are readable, use progressive disclosure, and link correctly.</td>
+          </tr>
+          <tr class="fragment">
+            <td style="color: var(--accent-green); font-weight: bold;">Code Reviewer</td>
+            <td>Security, performance, OWASP</td>
+            <td>Auth flows are accurate, no hardcoded secrets, configs match reality.</td>
+          </tr>
+          <tr class="fragment">
+            <td style="color: var(--accent-pink); font-weight: bold;">Frontend Architect</td>
+            <td>UI consistency, components, UX</td>
+            <td>Design systems map correctly to business workflows.</td>
+          </tr>
+        </table>
+        <aside class="notes">
+          The prompt tells the AI to act as a Master Orchestrator, but gives it three "assistant" personas to consult.
+          The
+          Docs Architect ensures the markdown files are actually human-readable using progressive disclosure. The Code
+          Reviewer acts as a security gate. The Frontend Architect guarantees that generated UI components map
+          seamlessly to workflows.
+        </aside>
+      </section>
+
+      <!-- Slide 5: The 7 Phases -->
+      <section>
+        <h2 class="gradient-text-3">The 7 Execution Phases</h2>
+
+        <div
+          style="display: grid; grid-template-columns: 1fr; gap: 0.3em; max-width: 95%; margin: 0 auto; text-align: left;">
+          <div class="card" style="display: flex; align-items: flex-start; padding: 0.4em 0.8em; margin: 0.1em 0;">
+            <div
+              style="font-weight: bold; width: 140px; flex-shrink: 0; color: var(--accent-orange); font-size: 0.7em;">
+              Phase 0</div>
+            <div style="font-size: 0.7em; margin-top: -0.1em;">Project Sizing & Agent Strategy (Sequential vs Parallel)
+            </div>
+          </div>
+          <div class="card" style="display: flex; align-items: flex-start; padding: 0.4em 0.8em; margin: 0.1em 0;">
+            <div style="font-weight: bold; width: 140px; flex-shrink: 0; color: var(--accent-blue); font-size: 0.7em;">
+              Phase 1</div>
+            <div style="font-size: 0.7em; margin-top: -0.1em;">Deep Codebase Discovery (15 point checklist)</div>
+          </div>
+          <div class="card" style="display: flex; align-items: flex-start; padding: 0.4em 0.8em; margin: 0.1em 0;">
+            <div style="font-weight: bold; width: 140px; flex-shrink: 0; color: var(--accent-cyan); font-size: 0.7em;">
+              Phase 2</div>
+            <div style="font-size: 0.7em; margin-top: -0.1em;">Generate Architecture Docs (`docs/architecture/`)</div>
+          </div>
+          <div class="card" style="display: flex; align-items: flex-start; padding: 0.4em 0.8em; margin: 0.1em 0;">
+            <div
+              style="font-weight: bold; width: 140px; flex-shrink: 0; color: var(--accent-purple); font-size: 0.7em;">
+              Phase 3</div>
+            <div style="font-size: 0.7em; margin-top: -0.1em;">Generate Tool Configs (Rules / Settings)</div>
+          </div>
+          <div class="card" style="display: flex; align-items: flex-start; padding: 0.4em 0.8em; margin: 0.1em 0;">
+            <div
+              style="font-weight: bold; width: 140px; flex-shrink: 0; color: var(--accent-purple); font-size: 0.7em;">
+              Phase 4</div>
+            <div style="font-size: 0.7em; margin-top: -0.1em;">Generate Workflows (Skills / Commands)</div>
+          </div>
+          <div class="card" style="display: flex; align-items: flex-start; padding: 0.4em 0.8em; margin: 0.1em 0;">
+            <div
+              style="font-weight: bold; width: 140px; flex-shrink: 0; color: var(--accent-purple); font-size: 0.7em;">
+              Phase 5</div>
+            <div style="font-size: 0.7em; margin-top: -0.1em;">Generate Project Index (`AGENTS.md`)</div>
+          </div>
+          <div class="card" style="display: flex; align-items: flex-start; padding: 0.4em 0.8em; margin: 0.1em 0;">
+            <div style="font-weight: bold; width: 140px; flex-shrink: 0; color: var(--accent-green); font-size: 0.7em;">
+              Phase 6</div>
+            <div style="font-size: 0.7em; margin-top: -0.1em;">31-Point Consistency Validation</div>
+          </div>
+        </div>
+        <aside class="notes">
+          The prompt forces the agent through these 7 strict phases. For small projects, it does this sequentially. For
+          large enterprise projects, it will actually spawn parallel sub-agents to do the discovery and documentation
+          simultaneously, then consolidate the findings. Notice phase 6—it has a massive 31-point checklist to validate
+          everything before finishing.
+        </aside>
+      </section>
+
+      <!-- Slide 6: How Tool Configs Work (2025/2026) -->
+      <section>
+        <h2>Tool Configs (March 2026)</h2>
+        <p>The prompt generates the specific folder structures required by modern AI tools.</p>
+
+        <table style="font-size: 0.55em;">
+          <tr>
+            <th>Feature</th>
+            <th><span class="badge badge-blue">Cursor</span></th>
+            <th><span class="badge badge-purple">Claude Code</span></th>
+            <th><span class="badge badge-orange">Antigravity</span></th>
+          </tr>
+          <tr>
+            <td><strong>Global Rules</strong></td>
+            <td>`.cursor/rules/project-context.mdc` (alwaysApply)</td>
+            <td>`CLAUDE.md` (root, read automatically)</td>
+            <td>Tool Memory Settings (manual)</td>
+          </tr>
+          <tr>
+            <td><strong>Contextual Rules</strong></td>
+            <td>`.mdc` files activated via `globs` matching specific files</td>
+            <td>Subdirectory `CLAUDE.md` files</td>
+            <td>`.agent/memory/*.md` files (read on demand)</td>
+          </tr>
+          <tr>
+            <td><strong>Workflows</strong></td>
+            <td>`.cursor/skills/*/SKILL.md` (Agent Skills)</td>
+            <td>`.claude/commands/*.md` (Slash Commands)</td>
+            <td>`.agent/workflows/*.md` (Slash Commands)</td>
+          </tr>
+          <tr>
+            <td><strong>Project Index</strong></td>
+            <td>`AGENTS.md`</td>
+            <td>Points to `AGENTS.md` if Combined Mode</td>
+            <td>N/A (Managed by Knowledge Items/Subagents)</td>
+          </tr>
+        </table>
+
+        <div class="fragment card"
+          style="background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); margin-top: 1em;">
+          <p style="margin: 0; color: #fca5a5;"><strong>Note:</strong> We explicitly DO NOT use `.cursorrules` anymore.
+            It is deprecated in favor of `AGENTS.md` and `.mdc` rule files.</p>
+        </div>
+        <aside class="notes">
+          This is the core technical value. In 2026, the way these tools manage context has splintered. Cursor uses the
+          new `.mdc` file format and Agent Skills. Claude Code uses CLAUDE.md and slash commands. Antigravity uses its
+          own memory and workflow `.md` files. Our prompt detects what tools you want and builds ONLY the adapter files
+          for those specific tools, linking back to a single source of truth in the docs folder. Also, we kill the old
+          .cursorrules file.
+        </aside>
+      </section>
+
+      <!-- Slide 7: Terminology & Capabilities -->
+      <section>
+        <h2 style="font-size: 1.4em;">Rules vs. Skills vs. Agents</h2>
+        <table style="width: 100%; font-size: 0.55em; margin-bottom: 1em;">
+          <tr>
+            <th style="width: 20%; color: var(--accent-blue);">Rules</th>
+            <th style="width: 20%; color: var(--accent-purple);">Skills/Workflows</th>
+            <th style="width: 30%; color: var(--accent-orange);">Agents</th>
+            <th style="width: 30%; color: var(--accent-pink);">Subagents</th>
+          </tr>
+          <tr style="vertical-align: top;">
+            <td>Static context (e.g. `.mdc`). Constrains agent behavior via prompt injection.</td>
+            <td>Actionable step-by-step procedures (e.g. Slash Commands).</td>
+            <td>The autonomous brain executing Plan-Act-Reflect loops using tools.</td>
+            <td>Child processes spawned by the main agent for parallel/specialized tasks.</td>
+          </tr>
+        </table>
+
+        <h3 style="font-size: 1.0em; margin-top: 1em; color: var(--accent-cyan);">Platform Capabilities</h3>
+        <table style="width: 100%; font-size: 0.55em;">
+          <tr>
+            <th style="width: 20%;">Platform</th>
+            <th style="width: 40%;">Agent Paradigm</th>
+            <th style="width: 40%;">Subagent Orchestration</th>
+          </tr>
+          <tr style="vertical-align: top;">
+            <td><strong>Cursor</strong></td>
+            <td>IDE-Integrated Composer (Background file edits, terminal access).</td>
+            <td>Asynchronous sub-agents natively supported (v2.5+), capable of spawning their own sub-agents and running
+              dedicated VMs.</td>
+          </tr>
+          <tr style="vertical-align: top;">
+            <td><strong>Claude Code</strong></td>
+            <td>Fast CLI Agent (file-by-file terminal execution, remote control).</td>
+            <td>Supports Agent Teams (v4.6+) running up to 9 sub-agents in parallel for complex orchestration.</td>
+          </tr>
+          <tr style="vertical-align: top;">
+            <td><strong>Antigravity</strong></td>
+            <td>Advanced Framework (Tool-heavy execution, UI generation).</td>
+            <td>Deep multi-subagent support (native Browser, Knowledge, and Terminal subagents working in parallel).
+            </td>
+          </tr>
+        </table>
+        <aside class="notes">
+          It is crucial to differentiate these terms. Rules tell the agent HOW to behave. Skills tell the agent WHAT
+          steps to follow for complex tasks. The Agent is the brain executing them. Subagents are specialized workers
+          spawned by that brain.
+          Recently, both Cursor and Claude have released major updates embracing sub-agents—Cursor now supports
+          asynchronous sub-agents that can even run their own VMs, and Claude Code introduced Agent Teams. Antigravity
+          continues to shine in deep orchestration with its specialized native subagents—like a dedicated
+          browser-subagent to test a UI, or a knowledge-subagent to search past conversations.
+        </aside>
+      </section>
+
+      <!-- Slide 8: Agentic Coding Workflows -->
+      <section>
+        <h2 class="gradient-text">Agentic Coding Workflows</h2>
+        <p>Moving from autocomplete to autonomous orchestration.</p>
+
+        <div class="grid-2">
+          <div class="card" style="padding: 1em;">
+            <h3>How it works today</h3>
+            <ul style="font-size: 0.75em;">
+              <li><strong>Plan:</strong> Breaks task into sub-tasks using LLM logic.</li>
+              <li><strong>Act:</strong> Uses tools (Read, Write, Terminal, Search).</li>
+              <li><strong>Reflect:</strong> Reads error logs, auto-corrects code.</li>
+            </ul>
+          </div>
+          <div class="card" style="padding: 1em;">
+            <h3>Why Context Matters</h3>
+            <ul style="font-size: 0.75em;">
+              <li>An agent doing a multi-file refactor needs to know <em>where</em> the DB models live.</li>
+              <li>A custom <code>/doc-cleanup</code> workflow relies on knowing which docs are sacred.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="fragment card" style="text-align: center; margin-top: 0.5em; padding: 0.8em;">
+          <p style="margin: 0;"><strong>Agentic workflows run on context.</strong> Fast, token-efficient context files =
+            cheaper, smarter, faster AI agents.</p>
+        </div>
+        <aside class="notes">
+          Agentic workflows mean the AI isn't just finishing your sentence—it's executing a loop: Plan, Act, Reflect. To
+          do this without destroying your app, the agent needs hyper-specific context. If you give an agent a workflow
+          to "deploy to staging", it needs to know what your staging pipeline actually is. This prompt builds that
+          precise context layer.
+        </aside>
+      </section>
+
+      <!-- Slide 8: The "Doc-Cleanup" Skill/Workflow -->
+      <section>
+        <h2>Example: The Doc-Cleanup Workflow</h2>
+        <p>We generate a custom slash command/skill for the agent to maintain hygiene.</p>
+
+        <pre><code class="language-markdown" data-trim data-noescape>
+---
+description: Audit and clean up project documentation
+---
+# Documentation Cleanup
+
+## 1. Inventory
+// turbo
+List all `.md` files in `docs/` and project root with date/size.
+
+## 2. Classify
+Mark as Active, Stale (merge candidate), or Orphan (delete).
+
+## 3. Consolidate & Archive
+Merge Stale docs into `docs/architecture/`. Move Orphans to `.archive/`.
+**Safety Rule:** Never auto-delete README, AGENTS.md, or architecture docs!
+        </code></pre>
+        <aside class="notes">
+          Here is an example of what the prompt builds. It generates a "Doc-Cleanup" skill for Cursor, or a slash
+          command for Claude/Antigravity. This workflow tells the agent exactly how to inventory your docs, classify
+          them, consolidate stale ones, and safely archive orphans. It turns the AI into your automated repo librarian.
+        </aside>
+      </section>
+
+      <!-- Slide 9: Platform Evolution & Velocity -->
+      <section>
+        <h2 class="gradient-text-2">Platform Evolution & Velocity</h2>
+        <p style="font-size: 0.8em; margin: 0 0 0.5em 0;">Tracking the rapid pace of AI coding agents up to
+          <strong>March 2026</strong>.
+        </p>
+
+        <div class="timeline-container">
+          <!-- Cursor Timeline -->
+          <div class="timeline-row">
+            <div class="timeline-platform">
+              <strong style="color: var(--accent-blue);">Cursor AI</strong>
+              <span>Mid 2023 - Feb 2026</span>
+            </div>
+            <div class="timeline-track">
+              <div class="timeline-line"></div>
+
+              <div class="timeline-node" style="left: 10%; color: var(--accent-blue);">
+                <div class="timeline-label">Autocomplete<span class="timeline-date">Mid 2023</span></div>
+              </div>
+
+              <div class="timeline-node" style="left: 40%; color: var(--accent-blue);">
+                <div class="timeline-label">v2.0 (Composer)<span class="timeline-date">Oct 2025</span></div>
+              </div>
+
+              <div class="timeline-node" style="left: 65%; color: var(--accent-blue);">
+                <div class="timeline-label">Visual Editor<span class="timeline-date">Dec 2025</span></div>
+              </div>
+
+              <div class="timeline-node" style="left: 90%; color: var(--accent-blue);">
+                <div class="timeline-label">v2.5 (Async VMs)<span class="timeline-date">Feb 2026</span></div>
+              </div>
+            </div>
+            <div class="timeline-stats"><strong>~5+</strong><br>Releases</div>
+          </div>
+
+          <!-- Claude Timeline -->
+          <div class="timeline-row fragment">
+            <div class="timeline-platform">
+              <strong style="color: var(--accent-purple);">Claude Code</strong>
+              <span>Feb 2025 - Feb 2026</span>
+            </div>
+            <div class="timeline-track">
+              <div class="timeline-line"></div>
+
+              <div class="timeline-node" style="left: 10%; color: var(--accent-purple);">
+                <div class="timeline-label">CLI Chat<span class="timeline-date">Feb 2025</span></div>
+              </div>
+
+              <div class="timeline-node" style="left: 35%; color: var(--accent-purple);">
+                <div class="timeline-label">Agent Skills<span class="timeline-date">Oct 2025</span></div>
+              </div>
+
+              <div class="timeline-node" style="left: 60%; color: var(--accent-purple);">
+                <div class="timeline-label">Computer Use<span class="timeline-date">Oct 2025</span></div>
+              </div>
+
+              <div class="timeline-node" style="left: 90%; color: var(--accent-purple);">
+                <div class="timeline-label">Opus 4.6 Teams<span class="timeline-date">Feb 2026</span></div>
+              </div>
+            </div>
+            <div class="timeline-stats"><strong>~6+</strong><br>Releases</div>
+          </div>
+
+          <!-- Antigravity Timeline -->
+          <div class="timeline-row fragment">
+            <div class="timeline-platform">
+              <strong style="color: var(--accent-orange);">Antigravity</strong>
+              <span>Nov 2025 - Feb 2026</span>
+            </div>
+            <div class="timeline-track">
+              <div class="timeline-line"></div>
+
+              <div class="timeline-node" style="left: 10%; color: var(--accent-orange);">
+                <div class="timeline-label">v1.11.2 IDE<span class="timeline-date">Nov 2025</span></div>
+              </div>
+
+              <div class="timeline-node" style="left: 40%; color: var(--accent-orange);">
+                <div class="timeline-label">Sandboxing<span class="timeline-date">Jan 2026</span></div>
+              </div>
+
+              <div class="timeline-node" style="left: 65%; color: var(--accent-orange);">
+                <div class="timeline-label">Artifacts UI<span class="timeline-date">Feb 2026</span></div>
+              </div>
+
+              <div class="timeline-node" style="left: 90%; color: var(--accent-orange);">
+                <div class="timeline-label">AI Studio<span class="timeline-date">Feb 2026</span></div>
+              </div>
+            </div>
+            <div class="timeline-stats"><strong>~5+</strong><br>Releases</div>
+          </div>
+        </div>
+
+        <div class="fragment card"
+          style="text-align: center; margin-top: 1em; padding: 0.6em; border-color: rgba(52,211,153,0.4);">
+          <h3 style="margin: 0; font-size: 1.1em; color: var(--accent-green);">The Takeaway: ~50 Major Features in 12
+            Months</h3>
+          <p style="margin: 0.2em 0 0 0; font-size: 0.7em;">The tooling is advancing too fast for manual configuration.
+            This extreme velocity is exactly why the <strong>Universal Bootstrap Prompt</strong> is critical for
+            maintaining robust architecture boundaries.</p>
+        </div>
+
+        <aside class="notes">
+          Let's talk about velocity. The evolution of these platforms is staggering. Cursor launched in 2023 as an
+          autocomplete and chat tool, but by 2026 it's running asynchronous sub-agents on dedicated VMs. Claude Code
+          went from a simple CLI tool in early 2025 to orchestrating 9-agent teams with Opus 4.6 in just one year.
+          Antigravity launched in late 2025 as an agent-first IDE and rapidly added deep browser/terminal integration
+          and native skills.
+          Across these three platforms, we've seen nearly 50 major feature additions in the last year alone. Because the
+          tooling is advancing this fast, you cannot rely on manual configuration or generic agent contexts anymore.
+          This extreme velocity is exactly why deploying a structured Universal Bootstrap Prompt is critical—it ensures
+          these increasingly powerful agents stay within your project's architectural boundaries.
+        </aside>
+      </section>
+
+      <!-- Slide 10: Added Value & Interactive -->
+      <section>
+        <h2 class="gradient-text-2">The Added Value</h2>
+        <div class="grid-2">
+          <ul style="font-size: 0.8em; margin-top: 1em;">
+            <li class="fragment"><strong>Zero Dependency:</strong> Works on any repo, day 1.</li>
+            <li class="fragment"><strong>Token Efficiency:</strong> Maps the codebase into tiny ~300 line files instead
+              of relying on RAG to guess.</li>
+            <li class="fragment"><strong>Multi-Tool:</strong> Supports devs using Cursor alongside devs using Claude
+              Code.</li>
+            <li class="fragment"><strong>Auto-Mending:</strong> Includes workflows to fix docs and debug issues using
+              your actual logs.</li>
+          </ul>
+          <div class="cta-box fragment" style="margin-top: 1em;">
+            <h3>Try it now!</h3>
+            <p>I'd ask everyone to pull the prompt, drop it into your favorite repo, and append:</p>
+            <pre
+              style="width: auto; margin: 0.5em 0;"><code style="text-align: center; padding: 0.5em !important; font-size: 0.8em;">Generate for: Cursor, Claude Code</code></pre>
+          </div>
+        </div>
+        <aside class="notes">
+          The massive added value here is Token Efficiency and cross-tool compatibility. Instead of praying your AI
+          agent finds the right context, we inject it. Now, I want to make this interactive. I'm going to share the
+          GitHub repo link. Please pull the prompt, drop it into a repo you are currently working on, and watch what it
+          generates.
+        </aside>
+      </section>
+
+      <!-- Slide 11: Call to Action -->
+      <section style="text-align: center;">
+        <h1 class="gradient-text-1">Questions & Feedback</h1>
+        <p style="font-size: 1.2em; margin-top: 1em; color: var(--text-primary);">
+          Let's discuss how this performs on your codebases.
+        </p>
+
+        <div
+          style="margin-top: 1em; padding: 1.5em; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
+          <h3>GitHub Repository</h3>
+          <a href="https://github.com/samtoma/RELETIX" target="_blank" class="cta-link primary"
+            style="font-size: 1em;">github.com/samtoma/RELETIX</a>
+          <p style="margin-top: 0.5em; color: var(--text-muted); font-size: 0.8em;">
+            File: <code>universal-bootstrap-prompt.md</code><br>
+            Version: 5.1
+          </p>
+        </div>
+        <aside class="notes">
+          Thank you. I'm opening the floor for questions. I'm very eager to hear your feedback on how the generated
+          architecture docs look for your specific projects, and if the generated rules and workflows successfully alter
+          your AI agent's behavior.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- reveal.js Script (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.js"></script>
+  <!-- Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/highlight/highlight.js"></script>
+
+  <script>
+    // Initialize reveal.js
+    Reveal.initialize({
+      hash: true,
+      slideNumber: 'c/t',
+      controls: true,
+      progress: true,
+      center: true,
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      width: 1536,
+      height: 864,
+      margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2.0,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+</body>
+
+</html>

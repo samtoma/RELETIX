@@ -1,0 +1,437 @@
+/* Custom Theme for Project Architect AI Presentation */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  --bg-dark: #0a0e1a;
+  --bg-card: rgba(255, 255, 255, 0.04);
+  --accent-blue: #60a5fa;
+  --accent-purple: #a78bfa;
+  --accent-cyan: #22d3ee;
+  --accent-green: #34d399;
+  --accent-orange: #fb923c;
+  --accent-pink: #f472b6;
+  --text-primary: #e2e8f0;
+  --text-muted: #94a3b8;
+  --gradient-1: linear-gradient(135deg, #60a5fa, #a78bfa);
+  --gradient-2: linear-gradient(135deg, #22d3ee, #34d399);
+  --gradient-3: linear-gradient(135deg, #f472b6, #fb923c);
+}
+
+.reveal {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.reveal h1 {
+  font-size: 2.0em;
+  margin-bottom: 0.2em;
+}
+
+.reveal h2 {
+  font-size: 1.4em;
+  margin-bottom: 0.5em;
+}
+
+.reveal h3 {
+  font-size: 1.0em;
+  color: var(--accent-cyan);
+  margin-bottom: 0.3em;
+}
+
+.reveal p,
+.reveal li {
+  font-size: 0.65em;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.reveal code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75em;
+}
+
+.reveal pre {
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  margin: 0.5em auto;
+}
+
+.reveal pre code {
+  padding: 1.0em !important;
+  border-radius: 12px;
+  font-size: 0.55em;
+  line-height: 1.5;
+  max-height: 400px;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-2 {
+  background: var(--gradient-2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-3 {
+  background: var(--gradient-3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 0.8em 1.0em;
+  margin: 0.3em 0;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+.card h3 {
+  margin: 0 0 0.3em 0;
+  font-size: 0.9em;
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.6em;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.card ul {
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+
+/* Grid layouts */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8em;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.6em;
+}
+
+/* Tables */
+.reveal table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.55em;
+  margin: 0.3em 0;
+}
+
+.reveal table th {
+  background: rgba(96, 165, 250, 0.15);
+  color: var(--accent-blue);
+  font-weight: 600;
+  padding: 0.5em 0.6em;
+  text-align: left;
+  border-bottom: 2px solid rgba(96, 165, 250, 0.3);
+}
+
+.reveal table td {
+  padding: 0.4em 0.6em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.reveal table tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Badges & pills */
+.badge {
+  display: inline-block;
+  padding: 0.2em 0.7em;
+  border-radius: 20px;
+  font-size: 0.6em;
+  font-weight: 600;
+  margin: 0.1em;
+}
+
+.badge-blue {
+  background: rgba(96, 165, 250, 0.15);
+  color: var(--accent-blue);
+  border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+.badge-purple {
+  background: rgba(167, 139, 250, 0.15);
+  color: var(--accent-purple);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+}
+
+.badge-cyan {
+  background: rgba(34, 211, 238, 0.15);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(34, 211, 238, 0.3);
+}
+
+.badge-green {
+  background: rgba(52, 211, 153, 0.15);
+  color: var(--accent-green);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+}
+
+.badge-orange {
+  background: rgba(251, 146, 60, 0.15);
+  color: var(--accent-orange);
+  border: 1px solid rgba(251, 146, 60, 0.3);
+}
+
+/* Phase flow */
+.phase-flow {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  flex-wrap: wrap;
+  margin: 0.6em 0;
+}
+
+.phase-box {
+  padding: 0.4em 0.6em;
+  border-radius: 10px;
+  font-size: 0.55em;
+  font-weight: 600;
+  text-align: center;
+  min-width: 80px;
+}
+
+.phase-arrow {
+  color: var(--text-muted);
+  font-size: 1.2em;
+}
+
+/* Tool icons */
+.tool-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Animations */
+.reveal .slides section .fragment.grow-in {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.reveal .slides section .fragment.grow-in.visible {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Version badge */
+.version-badge {
+  display: inline-block;
+  margin-bottom: 1.5em;
+  padding: 0.5em 1.2em;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.5em;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+/* Subtitle styling */
+.subtitle {
+  font-size: 0.8em !important;
+  color: var(--text-muted) !important;
+  font-weight: 300;
+  margin-top: 0.2em;
+}
+
+/* CTA section */
+.cta-box {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1));
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  border-radius: 12px;
+  padding: 1.0em;
+  text-align: center;
+}
+
+.cta-box h3 {
+  color: var(--accent-blue);
+  font-size: 0.9em;
+}
+
+.cta-box p {
+  font-size: 0.6em;
+  margin-bottom: 0.5em;
+}
+
+.cta-link {
+  display: inline-block;
+  margin: 0.2em;
+  padding: 0.4em 1.2em;
+  border-radius: 6px;
+  font-size: 0.65em;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.cta-link:hover {
+  transform: translateY(-2px);
+}
+
+.cta-link.primary {
+  background: var(--gradient-1);
+  color: white;
+}
+
+.cta-link.secondary {
+  border: 1px solid rgba(96, 165, 250, 0.4);
+  color: var(--accent-blue);
+}
+
+/* Comparison highlights */
+.highlight-row {
+  background: rgba(96, 165, 250, 0.05) !important;
+}
+
+/* Slide background pattern */
+.slide-bg-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(96, 165, 250, 0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Timeline Chart */
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+  margin-top: 1em;
+  text-align: left;
+}
+
+.timeline-row {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.2em 0.8em 0.6em 0.8em;
+}
+
+.timeline-platform {
+  width: 18%;
+  font-weight: bold;
+  font-size: 0.65em;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-platform span {
+  font-size: 0.7em;
+  color: var(--text-muted);
+  font-weight: normal;
+  margin-top: 0.2em;
+}
+
+.timeline-track {
+  flex-grow: 1;
+  position: relative;
+  height: 40px;
+  margin: 0 1em;
+  display: flex;
+  align-items: center;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.timeline-node {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 10px currentColor;
+  background-color: var(--bg-dark);
+  border: 2px solid currentColor;
+}
+
+.timeline-label {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.45em;
+  white-space: nowrap;
+  margin-top: 0.5em;
+  color: var(--text-primary);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.timeline-date {
+  display: block;
+  font-size: 0.8em;
+  color: var(--text-muted);
+  margin-top: 0.2em;
+}
+
+.timeline-stats {
+  width: 12%;
+  font-size: 0.6em;
+  text-align: right;
+  flex-shrink: 0;
+  color: var(--text-muted);
+}
