@@ -1,0 +1,11 @@
+name = "reletix-survey"
+main = "src/index.js"
+compatibility_date = "2025-05-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "reletix-survey"
+database_id = "1036e35b-f542-4907-a547-4f7871b2b041"
+
+[vars]
+TEAM_NAME = "Reletix"
