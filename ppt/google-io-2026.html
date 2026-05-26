@@ -9,53 +9,52 @@
   <meta name="author" content="Samuel Toma">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- reveal.js CSS (CDN) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/black.css" id="theme">
-  <!-- Custom Styling (shared with the bootstrap deck) -->
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    /* Deck-specific overrides */
-    .reveal .slides section {
-      height: 100%;
-    }
-    .reveal h1.title-xl {
-      font-size: 2.4em;
-      line-height: 1.05;
-    }
+    /* Tight, fit-to-screen overrides */
+    .reveal h1 { font-size: 1.7em; margin-bottom: 0.15em; }
+    .reveal h2 { font-size: 1.1em; margin-bottom: 0.4em; }
+    .reveal h3 { font-size: 0.85em; margin-bottom: 0.25em; }
+    .reveal p, .reveal li { font-size: 0.55em; line-height: 1.4; }
     .reveal .eyebrow {
-      font-size: 0.55em;
+      font-size: 0.48em;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--accent-cyan);
-      margin-bottom: 0.6em;
+      margin-bottom: 0.4em;
     }
-    .reveal .meta-row {
-      display: flex;
-      gap: 1.2em;
-      font-size: 0.5em;
-      color: var(--text-muted);
-      margin-top: 1.5em;
-      flex-wrap: wrap;
+    .reveal .kicker {
+      display: inline-block;
+      padding: 0.15em 0.6em;
+      border-radius: 10px;
+      background: rgba(251, 146, 60, 0.18);
+      color: var(--accent-orange);
+      font-size: 0.42em;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.4em;
     }
-    .reveal .meta-row strong { color: var(--text-primary); font-weight: 600; }
     .reveal .quote-thesis {
-      font-size: 0.85em;
-      line-height: 1.5;
+      font-size: 0.62em;
+      line-height: 1.45;
       color: var(--text-primary);
       border-left: 3px solid var(--accent-cyan);
-      padding: 0.4em 0 0.4em 1em;
-      margin: 0.6em 0;
+      padding: 0.3em 0 0.3em 0.9em;
+      margin: 0.4em 0;
     }
-    .reveal .stat {
-      display: inline-block;
-      margin-right: 1.2em;
-      font-size: 0.65em;
+    .reveal .stat-row {
+      display: flex;
+      gap: 1.2em;
+      flex-wrap: wrap;
+      margin-top: 0.5em;
     }
     .reveal .stat .num {
       display: block;
-      font-size: 1.8em;
+      font-size: 1.4em;
       font-weight: 800;
       line-height: 1;
       background: var(--gradient-1);
@@ -64,65 +63,59 @@
       background-clip: text;
     }
     .reveal .stat .lbl {
-      font-size: 0.7em;
+      font-size: 0.45em;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-    .reveal table.tight { font-size: 0.42em; }
-    .reveal table.tight th, .reveal table.tight td { padding: 0.35em 0.5em; }
+    .reveal table { font-size: 0.42em; margin: 0.2em 0; }
+    .reveal table th, .reveal table td { padding: 0.3em 0.45em; }
+    .reveal table.xtight { font-size: 0.38em; }
+    .reveal table.xtight th, .reveal table.xtight td { padding: 0.25em 0.4em; }
+    .reveal ul.tight li { font-size: 0.5em; line-height: 1.35; margin: 0.1em 0; }
+    .reveal ul.xtight li { font-size: 0.45em; line-height: 1.3; margin: 0.05em 0; }
+    .reveal .card { padding: 0.55em 0.75em; margin: 0.2em 0; }
+    .reveal .card h3 { font-size: 0.7em; margin: 0 0 0.2em 0; }
+    .reveal .card p { font-size: 0.5em; line-height: 1.4; margin: 0; }
+    .reveal .grid-2 { gap: 0.6em; }
+    .reveal .grid-3 { gap: 0.5em; }
+    .reveal .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.4em;
+    }
     .reveal .footnote {
-      font-size: 0.4em;
+      font-size: 0.35em;
       color: var(--text-muted);
       font-style: italic;
-      margin-top: 0.8em;
+      margin-top: 0.4em;
     }
-    .reveal ul.tight li { font-size: 0.55em; line-height: 1.45; margin: 0.15em 0; }
-    .reveal .col-half { width: 50%; }
+    .reveal .pill-row { display: flex; flex-wrap: wrap; gap: 0.3em; margin: 0.3em 0; }
+    .reveal .badge { font-size: 0.45em; padding: 0.15em 0.55em; }
     .reveal .accent-green { color: var(--accent-green); }
     .reveal .accent-orange { color: var(--accent-orange); }
     .reveal .accent-pink { color: var(--accent-pink); }
     .reveal .accent-cyan { color: var(--accent-cyan); }
     .reveal .accent-purple { color: var(--accent-purple); }
     .reveal .accent-blue { color: var(--accent-blue); }
-    .reveal .star { color: var(--accent-orange); }
     .reveal .strike { text-decoration: line-through; color: var(--text-muted); }
-    .reveal .source-list { font-size: 0.4em; column-count: 2; column-gap: 1.5em; }
+    .reveal .source-list {
+      font-size: 0.38em;
+      column-count: 3;
+      column-gap: 1.2em;
+      list-style: none;
+      padding: 0;
+    }
     .reveal .source-list a { color: var(--accent-blue); text-decoration: none; }
-    .reveal .source-list li { margin-bottom: 0.3em; break-inside: avoid; line-height: 1.4; }
-    .reveal .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0.5em;
-    }
-    .reveal .grid-3-tight {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.5em;
-    }
-    .reveal .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4em;
-      margin: 0.4em 0;
-    }
-    .reveal .big-cta {
-      font-size: 0.7em;
-      color: var(--text-primary);
-      line-height: 1.5;
-    }
-    .reveal .kicker {
-      display: inline-block;
-      padding: 0.15em 0.6em;
-      border-radius: 10px;
-      background: rgba(251, 146, 60, 0.18);
-      color: var(--accent-orange);
-      font-size: 0.5em;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 0.5em;
-    }
+    .reveal .source-list li { margin-bottom: 0.25em; break-inside: avoid; line-height: 1.3; }
+    .reveal .cta-box { padding: 0.6em 0.9em; margin-top: 0.4em; }
+    .reveal .cta-box h3 { font-size: 0.7em; margin-bottom: 0.25em; }
+    .reveal .cta-box p { font-size: 0.55em; line-height: 1.4; margin: 0; }
+    .reveal .version-badge { font-size: 0.4em; margin-bottom: 0.8em; padding: 0.35em 0.9em; }
+    .reveal .subtitle { font-size: 0.75em !important; margin-top: 0.15em; }
+    .reveal h1.title-xl { font-size: 2.2em; line-height: 1.05; }
+    /* prevent overflow */
+    .reveal .slides section { padding: 1.2em 1.5em !important; box-sizing: border-box; }
   </style>
 </head>
 
@@ -131,73 +124,70 @@
     <div class="slide-bg-pattern"></div>
     <div class="slides">
 
-      <!-- ============== 1. TITLE ============== -->
+      <!-- 1. TITLE -->
       <section>
-        <div class="version-badge">Competitive Intelligence Briefing · May 2026</div>
+        <div class="version-badge">Competitive Intelligence · May 2026</div>
         <h1 class="title-xl gradient-text">Google I/O 2026</h1>
         <h2 class="subtitle">The Agentic Substrate — and where the white space lives</h2>
-        <p style="font-size: 0.7em; color: var(--text-primary); margin-top: 1em;">
-          For founders building in <strong>developer tools &amp; app distribution</strong>.<br>
-          AI products that change B2B and B2C — existing-product enhancements <em>and</em> net-new agentic workflows.
+        <p style="font-size: 0.62em; color: var(--text-primary); margin-top: 0.8em;">
+          For founders in <strong>developer tools &amp; app distribution</strong>.<br>
+          B2C + B2B AI products — existing-product enhancements <em>and</em> net-new agentic workflows.
         </p>
-        <div class="pill-row" style="margin-top: 1.5em;">
+        <div class="pill-row" style="margin-top: 0.8em;">
           <span class="badge badge-blue">B2C</span>
           <span class="badge badge-purple">B2B</span>
           <span class="badge badge-cyan">Agentic</span>
           <span class="badge badge-green">Play Store</span>
           <span class="badge badge-orange">Gemini Spark</span>
         </div>
-        <div class="meta-row">
-          <span><strong>Event:</strong> Google I/O 2026 · May 19–20, Mountain View</span>
-          <span><strong>Prepared:</strong> 2026-05-25</span>
-        </div>
+        <p style="font-size: 0.42em; color: var(--text-muted); margin-top: 1em;">
+          Google I/O 2026 · May 19–20, Mountain View · Briefing prepared 2026-05-25
+        </p>
       </section>
 
-      <!-- ============== 2. EXECUTIVE SUMMARY: TOP 5 ============== -->
+      <!-- 2. EXECUTIVE SUMMARY + THESIS -->
       <section>
         <div class="eyebrow">Executive Summary</div>
-        <h2>Top 5 announcements that matter</h2>
+        <h2>Top 5 announcements · One-sentence thesis</h2>
         <div class="grid-2">
-          <div class="card">
-            <h3 class="accent-orange">1. Gemini Spark <span class="star">★</span></h3>
-            <p>24/7 personal agent on dedicated <strong>Google Cloud VMs</strong> (not on-device). Runs while phone is off. Integrated with Gmail/Docs/Slides + Canva, OpenTable, Instacart. Beta to AI Ultra US, week of May 26.</p>
+          <div>
+            <div class="card">
+              <h3 class="accent-orange">1. Gemini Spark ★</h3>
+              <p>24/7 agent on dedicated Google Cloud VMs. Runs while phone off. Gmail/Docs/Slides + Canva, OpenTable, Instacart. Beta to AI Ultra US, week of May 26.</p>
+            </div>
+            <div class="card">
+              <h3 class="accent-purple">2. Antigravity 2.0 + CLI + SDK</h3>
+              <p>Agent-first dev platform. Replaces Gemini CLI June 18. Managed Agents API. Frontal hit on Cursor, Claude Code, Copilot, Devin.</p>
+            </div>
+            <div class="card">
+              <h3 class="accent-green">3. Play Store "AI store" overhaul</h3>
+              <p>Play Shorts, Ask Play, Engage SDK in Gemini app, Gemini auto-listings. App discovery detached from the list view.</p>
+            </div>
           </div>
-          <div class="card">
-            <h3 class="accent-purple">2. Antigravity 2.0 + CLI + SDK</h3>
-            <p>Agent-first dev platform replacing Gemini CLI (<span class="accent-pink">sunset June 18, 2026</span>). Managed Agents API spins isolated Linux envs per call. Frontal hit on Cursor, Claude Code, Copilot, Devin.</p>
-          </div>
-          <div class="card">
-            <h3 class="accent-green">3. Play Store "AI store" overhaul</h3>
-            <p>Play Shorts (TikTok-style discovery feed), Ask Play (conversational finder), Engage SDK surfacing apps <strong>inside the Gemini app</strong>, Gemini auto-listings. App discovery detached from the list view.</p>
-          </div>
-          <div class="card">
-            <h3 class="accent-blue">4. Gemini 3.5 Flash GA + Omni</h3>
-            <p>3.5 Flash beats last year's 3.1 Pro at <strong>$1.50 / $9.00 per M tokens</strong> (~25% cheaper). Omni = one multimodal backbone (text/image/audio/video in → video out, ~10s clips, physics-aware).</p>
-          </div>
-          <div class="card" style="grid-column: 1 / span 2;">
-            <h3 class="accent-cyan">5. Android XR "Intelligent Eyewear" (context only — hardware out of scope)</h3>
-            <p>Samsung + Warby Parker + Gentle Monster audio glasses Fall 2026; Gucci/Kering joining; iPhone-compatible. Mentioned because the <em>Astra perception layer</em> is the AI substrate that ships with them.</p>
+          <div>
+            <div class="card">
+              <h3 class="accent-blue">4. Gemini 3.5 Flash + Omni</h3>
+              <p>Flash beats 3.1 Pro at $1.50/$9.00 per M tokens (~25% cheaper). Omni: one multimodal backbone, text/image/audio/video → video out.</p>
+            </div>
+            <div class="card">
+              <h3 class="accent-cyan">5. Android XR perception layer</h3>
+              <p>Audio glasses Fall 2026 w/ Samsung + Warby Parker + Gentle Monster. iPhone-compatible. <em>Astra</em> is the AI substrate shipping with them.</p>
+            </div>
+            <div class="quote-thesis" style="margin-top: 0.3em;">
+              Google is collapsing search, apps, OS, and browser into a <strong class="accent-cyan">single agentic substrate</strong> — the agent, not the user, becomes the primary client.
+            </div>
           </div>
         </div>
-      </section>
-
-      <!-- ============== 3. STRATEGIC THESIS ============== -->
-      <section>
-        <div class="eyebrow">The thesis in one sentence</div>
-        <h2>What Google is actually building</h2>
-        <div class="quote-thesis">
-          Google is collapsing search, apps, the OS, and the browser into a <strong class="accent-cyan">single agentic substrate (Gemini)</strong> that interacts with users by <em>intent</em>, not by app icon — and is rebuilding every distribution surface (Search, Play, Chrome, Workspace, Android, Glasses) so the <strong>agent, not the user</strong>, becomes the primary client.
-        </div>
-        <div style="margin-top: 1.2em;">
+        <div class="stat-row">
           <div class="stat"><span class="num">1B</span><span class="lbl">AI Mode MAU</span></div>
           <div class="stat"><span class="num">2.5B</span><span class="lbl">AI Overviews MAU</span></div>
           <div class="stat"><span class="num">30M</span><span class="lbl">Engage SDK MAU</span></div>
           <div class="stat"><span class="num">$99.99</span><span class="lbl">AI Ultra (was $249.99)</span></div>
-          <div class="stat"><span class="num">200+</span><span class="lbl">models in Enterprise Agent Platform</span></div>
+          <div class="stat"><span class="num">200+</span><span class="lbl">models in Enterprise platform</span></div>
         </div>
       </section>
 
-      <!-- ============== 4. DOUBLING DOWN vs RETREATING ============== -->
+      <!-- 3. DOUBLING DOWN vs RETREATING -->
       <section>
         <div class="eyebrow">Strategic posture</div>
         <h2>Doubling down <span style="color: var(--text-muted); font-weight: 400;">vs</span> retreating</h2>
@@ -205,79 +195,75 @@
           <div class="card" style="border-color: rgba(52, 211, 153, 0.3);">
             <h3 class="accent-green">↑ Doubling down</h3>
             <ul class="tight">
-              <li><strong>Agentic AI</strong> — Spark, Antigravity, Managed Agents, browser agents in Chrome (WebMCP)</li>
-              <li><strong>AI-native discovery</strong> — Search AI Mode, Play "Ask", YouTube "Ask"</li>
-              <li><strong>Eyewear</strong> as the next form factor (Astra layer)</li>
-              <li><strong>Cloud infrastructure</strong> — $175–185B capex 2026</li>
-              <li><strong>Cross-platform reach</strong> — Quick Share to iPhone, XR on iPhone, Workspace on competitors</li>
+              <li><strong>Agentic AI</strong> — Spark, Antigravity, Managed Agents, Chrome agents via WebMCP</li>
+              <li><strong>AI-native discovery</strong> — AI Mode, Ask Play, Ask YouTube, Ask Maps</li>
+              <li><strong>Eyewear</strong> as next form factor (Astra perception layer)</li>
+              <li><strong>Cloud infra</strong> — $175–185B capex 2026</li>
+              <li><strong>Cross-platform reach</strong> — Quick Share + XR + Workspace on iPhone</li>
             </ul>
           </div>
           <div class="card" style="border-color: rgba(244, 114, 182, 0.3);">
-            <h3 class="accent-pink">↓ Retreating / quietly killing</h3>
+            <h3 class="accent-pink">↓ Retreating / killing</h3>
             <ul class="tight">
-              <li><span class="strike">Project Mariner</span> standalone — folded into Chrome + Spark (May 4, 2026)</li>
-              <li><span class="strike">Gemini CLI</span> — absorbed into Antigravity CLI (June 18, 2026)</li>
-              <li><span class="strike">Vertex AI</span> brand — renamed Gemini Enterprise Agent Platform (Apr 22, 2026)</li>
-              <li><span class="strike">Chromebook</span> brand — replaced by Googlebook (Fall 2026)</li>
-              <li><strong>No new Pixel hardware</strong> at I/O — pushed to August event; Home speaker (promised Spring) absent</li>
+              <li><span class="strike">Project Mariner</span> standalone → folded into Chrome + Spark (May 4)</li>
+              <li><span class="strike">Gemini CLI</span> → absorbed into Antigravity CLI (June 18)</li>
+              <li><span class="strike">Vertex AI</span> brand → Gemini Enterprise Agent Platform</li>
+              <li><span class="strike">Chromebook</span> brand → Googlebook (Fall 2026)</li>
+              <li><strong>No new Pixel hardware</strong> at I/O; Home speaker absent</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- ============== 5. B2C — EXISTING PRODUCT ENHANCEMENTS ============== -->
+      <!-- 4. B2C — EXISTING ENHANCEMENTS + NEW AGENTIC PRODUCTS (COMBINED) -->
       <section>
-        <div class="eyebrow">B2C · Enhancement layer</div>
-        <h2><span class="accent-blue">B2C</span> — AI dropped into existing consumer products</h2>
-        <table class="tight">
-          <thead><tr><th style="width: 22%;">Product</th><th style="width: 55%;">What changed</th><th>Why it matters</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Google Search</strong></td><td>"Biggest change in 25 years" — custom AI-generated landing page per query → AI Mode conversation. Multimodal inputs (image, file, video, Chrome tab). <strong>Information Agents</strong> watching news/social/finance/sports 24/7.</td><td>Conversational + proactive. Kills 10-blue-links model.</td></tr>
-            <tr><td><strong>Gmail</strong></td><td><strong>Gmail Live</strong> voice Q&amp;A ("what's my flight gate?"). AI Inbox personalized draft replies. Task management. Summer 2026, AI Pro/Ultra US first.</td><td>First mainstream voice-native inbox.</td></tr>
-            <tr><td><strong>Google Photos</strong></td><td>Wardrobe planning — digital closet + virtual try-on with avatar.</td><td>Photos becomes a styling agent.</td></tr>
-            <tr><td><strong>Google Maps</strong></td><td><strong>Immersive Navigation</strong> (3D buildings/overpasses/terrain via Gemini). <strong>Ask Maps</strong> conversational Q&amp;A.</td><td>Maps moves from instructions to conversation.</td></tr>
-            <tr><td><strong>YouTube</strong></td><td><strong>Ask YouTube</strong> conversational search (Premium US 18+). <strong>Omni-powered Remixing</strong> in Shorts + YouTube Create (free). Likeness Detection expanded to all creators 18+; AI remixes carry watermarks + metadata + opt-out.</td><td>Creator tooling becomes generative; UGC discovery becomes conversational.</td></tr>
-            <tr><td><strong>Chrome</strong></td><td>Gemini in Chrome on Android (June 2026). <strong>Skills in Chrome</strong> — save reusable multi-tab workflows. Auto-browse + Spark integration coming months.</td><td>Browser becomes an agent host.</td></tr>
-            <tr><td><strong>NotebookLM</strong></td><td>One-tap Audio + Video Overviews. Cinematic Video Overviews. EPUB upload, PPTX export. 10 infographic styles. Conversation history saved.</td><td>"Research → media" pipeline collapses.</td></tr>
-            <tr><td><strong>Gemini app</strong></td><td>3rd-party apps surface <strong>inside the Gemini app</strong> via Engage SDK (Android + web).</td><td>New top-of-funnel competing with Play Store list view.</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <!-- ============== 6. B2C — NEW AGENTIC PRODUCTS ============== -->
-      <section>
-        <div class="eyebrow">B2C · Net-new agentic products</div>
-        <h2><span class="accent-blue">B2C</span> — products that didn't exist before</h2>
-        <div class="grid-3-tight">
-          <div class="card">
-            <h3 class="accent-orange">Gemini Spark <span class="star">★</span></h3>
-            <p>24/7 agentic personal assistant on <strong>dedicated Google Cloud VMs</strong>. Multi-step actions, recurring tasks, custom sub-agents. Out-of-the-box: Gmail, Docs, Slides + Canva, OpenTable, Instacart.</p>
-            <p style="margin-top: 0.4em;"><span class="badge badge-orange">AI Ultra</span> <span class="badge badge-green">$99.99/mo</span></p>
+        <div class="eyebrow"><span class="accent-blue">B2C</span> · Consumer side</div>
+        <h2>Existing products + 3 new agentic products</h2>
+        <div class="grid-2">
+          <div>
+            <h3 class="accent-blue" style="font-size: 0.7em;">AI dropped into existing products</h3>
+            <table class="xtight">
+              <tbody>
+                <tr><td><strong>Search</strong></td><td>"Biggest change in 25 years." Custom AI landing per query → AI Mode. Multimodal inputs. Information Agents watch news/finance 24/7.</td></tr>
+                <tr><td><strong>Gmail</strong></td><td><strong>Gmail Live</strong> voice Q&amp;A. AI Inbox personalized drafts. Summer 2026, AI Pro/Ultra US first.</td></tr>
+                <tr><td><strong>Photos</strong></td><td>Wardrobe planning — digital closet + virtual try-on.</td></tr>
+                <tr><td><strong>Maps</strong></td><td><strong>Immersive Nav</strong> (3D buildings via Gemini). <strong>Ask Maps</strong> conversational.</td></tr>
+                <tr><td><strong>YouTube</strong></td><td><strong>Ask YouTube</strong>. <strong>Omni Remixing</strong> in Shorts. Likeness Detection for all creators 18+.</td></tr>
+                <tr><td><strong>Chrome</strong></td><td>Gemini in Chrome on Android (June). <strong>Skills</strong> — save multi-tab workflows. Auto-browse coming.</td></tr>
+                <tr><td><strong>NotebookLM</strong></td><td>One-tap Audio + Video Overviews. EPUB upload, PPTX export. 10 infographic styles.</td></tr>
+                <tr><td><strong>Gemini app</strong></td><td>3rd-party apps surface inside it via Engage SDK. New top-of-funnel above the Play Store.</td></tr>
+              </tbody>
+            </table>
           </div>
-          <div class="card">
-            <h3 class="accent-cyan">Information Agents</h3>
-            <p>Background 24/7 agents watching blogs, news, social, finance, sports — alert on changes. "Google Alerts rebuilt on a frontier model."</p>
-            <p style="margin-top: 0.4em;"><span class="badge badge-blue">Free / AI Pro</span></p>
+          <div>
+            <h3 class="accent-blue" style="font-size: 0.7em;">Net-new agentic products</h3>
+            <div class="card">
+              <h3 class="accent-orange">Gemini Spark ★</h3>
+              <p>24/7 agent on <strong>dedicated GCP VMs</strong>. Persistent compute + identity. Runs while phone off. Multi-step + recurring + sub-agents. <span class="badge badge-orange">AI Ultra $99.99/mo</span></p>
+            </div>
+            <div class="card">
+              <h3 class="accent-cyan">Information Agents</h3>
+              <p>24/7 background agents watching news/social/finance/sports. "Google Alerts on a frontier model." <span class="badge badge-blue">Free / AI Pro</span></p>
+            </div>
+            <div class="card">
+              <h3 class="accent-purple">Gemini Omni / Omni Flash</h3>
+              <p>Single multimodal backbone — text/image/audio/video in → <strong>video out</strong>. ~10s clips, physics-aware. <span class="badge badge-purple">Included AI Pro/Ultra</span></p>
+            </div>
+            <div class="cta-box">
+              <p style="font-size: 0.5em;">Ultra now bundles always-on compute (Spark) + always-on monitoring (Info Agents) + always-on generation (Omni). The bundle <em>is</em> the product.</p>
+            </div>
           </div>
-          <div class="card">
-            <h3 class="accent-purple">Gemini Omni / Omni Flash</h3>
-            <p>Single multimodal backbone — text/image/audio/video in → <strong>video out</strong>. ~10s clips with audio, physics-aware. In Gemini app, Flow, YouTube Shorts; API in coming weeks.</p>
-            <p style="margin-top: 0.4em;"><span class="badge badge-purple">Included AI Pro/Ultra</span></p>
-          </div>
-        </div>
-        <div class="cta-box" style="margin-top: 0.8em;">
-          <p class="big-cta">All three change the <strong>shape of the consumer subscription</strong>: Ultra now bundles always-on compute (Spark), always-on monitoring (Information Agents), and always-on generation (Omni). The bundle <em>is</em> the product.</p>
         </div>
       </section>
 
-      <!-- ============== 7. SPARK DEEP DIVE ============== -->
+      <!-- 5. SPARK DEEP DIVE -->
       <section>
         <span class="kicker">Deep Dive</span>
         <h2>Gemini Spark — the architecture is the news</h2>
         <div class="grid-2">
           <div class="card">
-            <h3 class="accent-orange">What's actually shipping</h3>
-            <ul class="tight">
+            <h3 class="accent-orange">What ships</h3>
+            <ul class="xtight">
               <li><strong>Persistent compute per user</strong> — dedicated VM, not on-demand inference</li>
               <li>Persistent context, persistent agent identity</li>
               <li>Runs while phone is off — server-side execution</li>
@@ -286,97 +272,77 @@
             </ul>
           </div>
           <div class="card">
-            <h3 class="accent-pink">What this signals</h3>
-            <ul class="tight">
-              <li><strong>Ongoing infra cost per Ultra subscriber</strong> — only works if agent retention drives stickiness</li>
-              <li>Price cut $249 → $99 means <em>either</em> inference costs collapsed <em>or</em> $249 was choking adoption</li>
+            <h3 class="accent-pink">What it signals</h3>
+            <ul class="xtight">
+              <li><strong>Ongoing infra cost per Ultra sub</strong> — only works if agent retention drives stickiness</li>
+              <li>$249 → $99 cut: either inference costs collapsed, or $249 was choking adoption</li>
               <li>Prices <strong>ChatGPT Pro ($200)</strong> and <strong>Claude Max ($200)</strong> awkwardly</li>
               <li>Server-side execution = <strong>no on-device privacy story</strong></li>
-              <li><strong>No public Action SDK</strong> for 3rd-party devs to plug in</li>
+              <li><strong>No public Action SDK</strong> for 3rd-party devs</li>
             </ul>
           </div>
         </div>
-        <div class="cta-box" style="margin-top: 0.6em;">
+        <div class="cta-box">
           <h3>Two white-space arrows for a startup</h3>
-          <p>1. <strong>Privacy-first / on-device agent</strong> for regulated industries that cannot route through Google VMs.<br>
+          <p>1. <strong>Privacy-first / on-device agent</strong> for regulated industries that can't route through Google VMs.<br>
              2. <strong>Spark Action SDK middleware</strong> — write once, ship to Spark + Apple Intelligence + Copilot Actions.</p>
         </div>
       </section>
 
-      <!-- ============== 8. B2B — EXISTING PRODUCT ENHANCEMENTS ============== -->
+      <!-- 6. B2B — COMBINED -->
       <section>
-        <div class="eyebrow">B2B · Enhancement layer</div>
-        <h2><span class="accent-purple">B2B</span> — AI dropped into existing enterprise products</h2>
-        <table class="tight">
-          <thead><tr><th style="width: 22%;">Product</th><th>What changed</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Workspace (Docs/Sheets/Slides/Meet)</strong></td><td>Gemini bundled into every tier at <strong>no extra cost</strong>. Business Standard <strong>$14/user/mo</strong> includes Gemini across all apps. Business Plus $22 (5TB pooled, eDiscovery, Vault, 500-person Meet).</td></tr>
-            <tr><td><strong>Pricing positioning</strong></td><td>Direct undercut of <strong>Microsoft Copilot's $30/user/mo</strong> add-on. Pitch: "AI is included, not added."</td></tr>
-            <tr><td><strong>AI Expanded Access</strong></td><td>+$20/user/mo for higher Veo 3.1 limits, Nano Banana Pro, expanded NotebookLM, Workspace Studio automation.</td></tr>
-            <tr><td><strong>Android Studio</strong></td><td><strong>Agent Mode</strong> (sets up Firestore + Firebase Auth, writes security rules). <strong>Migration Agent</strong> — RN/web/iOS → Kotlin in hours.</td></tr>
-            <tr><td><strong>Firebase</strong></td><td>Firebase AI Logic supports all Gemini 3.x. Grounding with Google Maps to cut hallucinations. Firebase Studio + Builder.io: Figma → working code.</td></tr>
-            <tr><td><strong>Chrome (for business)</strong></td><td><strong>WebMCP origin trial</strong> (Chrome 149) — sites expose tools to browser agents. Chrome DevTools for agents. Modern Web Guidance (100+ vetted skills).</td></tr>
-            <tr><td><strong>Play Console</strong></td><td>Gemini auto-generates custom store listings. Gemini-powered localization. <strong>Protected with Play</strong> dashboard. Agentic catalog management (bulk SKU + regional pricing).</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <!-- ============== 9. B2B — NEW AGENTIC PRODUCTS ============== -->
-      <section>
-        <div class="eyebrow">B2B · Net-new agentic products</div>
-        <h2><span class="accent-purple">B2B</span> — products that didn't exist before</h2>
+        <div class="eyebrow"><span class="accent-purple">B2B</span> · Enterprise side</div>
+        <h2>Existing products + new agentic platform</h2>
         <div class="grid-2">
-          <div class="card">
-            <h3 class="accent-purple">Antigravity 2.0</h3>
-            <p>Standalone desktop app orchestrating <strong>parallel coding agents</strong> — refactor, gen tests, scaffold services. <span class="badge badge-purple">vs Cursor</span></p>
+          <div>
+            <h3 class="accent-purple" style="font-size: 0.7em;">AI in existing products</h3>
+            <table class="xtight">
+              <tbody>
+                <tr><td><strong>Workspace</strong></td><td>Gemini bundled <strong>at no extra cost</strong>. Business Standard $14, Plus $22. Direct undercut of Copilot's $30 add-on.</td></tr>
+                <tr><td><strong>Android Studio</strong></td><td><strong>Agent Mode</strong> (Firestore + Auth + security rules). <strong>Migration Agent</strong>: RN/web/iOS → Kotlin in hours.</td></tr>
+                <tr><td><strong>Firebase</strong></td><td>All Gemini 3.x. Grounding with Maps cuts hallucinations. Firebase Studio + Builder.io: Figma → code.</td></tr>
+                <tr><td><strong>Chrome (biz)</strong></td><td><strong>WebMCP origin trial</strong> (Chrome 149). Chrome DevTools for agents. 100+ vetted skills.</td></tr>
+                <tr><td><strong>Play Console</strong></td><td>Gemini auto-listings. Localization. <strong>Protected with Play</strong>. Agentic catalog management.</td></tr>
+              </tbody>
+            </table>
           </div>
-          <div class="card">
-            <h3 class="accent-purple">Antigravity CLI</h3>
-            <p>Same harness in the terminal. Cross-platform sandboxing, credential masking, hardened Git policies. <strong>Replaces Gemini CLI June 18, 2026.</strong></p>
-          </div>
-          <div class="card">
-            <h3 class="accent-purple">Antigravity SDK</h3>
-            <p>For building your own agent flows on top of the Antigravity harness.</p>
-          </div>
-          <div class="card">
-            <h3 class="accent-cyan">Managed Agents API</h3>
-            <p>Single API call spins up an <strong>isolated Linux env</strong> where an agent reasons, uses tools, executes code. Infra-level isolation. <span class="badge badge-cyan">vs Devin/Cognition</span></p>
-          </div>
-          <div class="card">
-            <h3 class="accent-blue">Gemini Enterprise Agent Platform</h3>
-            <p>Vertex AI rebrand (Apr 22, 2026). <strong>200+ models incl Anthropic Claude.</strong> Partner agents from Box, Workday, Salesforce, ServiceNow. ADK v1.0 in 4 languages. <strong>A2A protocol v1.0</strong> at 150 orgs. Managed MCP via Apigee.</p>
-          </div>
-          <div class="card">
-            <h3 class="accent-green">Workspace Studio</h3>
-            <p>No-code agent builder for non-devs. "Every Friday ping me to update my tracker." Connects Asana, Jira, Mailchimp, Salesforce. Runs Apps Script + webhooks.</p>
-          </div>
-          <div class="card" style="grid-column: 1 / span 2;">
-            <h3 class="accent-orange">AI Studio: Build native Android apps</h3>
-            <p>Vibe-code Kotlin apps with Workspace integrations + <strong>one-click Cloud Run + Firebase deploy</strong>. Eats no-code mobile builders (Glide, Adalo, Bubble mobile).</p>
+          <div>
+            <h3 class="accent-purple" style="font-size: 0.7em;">Net-new agentic products</h3>
+            <table class="xtight">
+              <tbody>
+                <tr><td><strong>Antigravity 2.0</strong></td><td>Desktop app orchestrating parallel coding agents. <span class="badge badge-purple">vs Cursor</span></td></tr>
+                <tr><td><strong>Antigravity CLI</strong></td><td>Same harness in terminal. Sandboxing + cred masking. <strong>Replaces Gemini CLI June 18.</strong></td></tr>
+                <tr><td><strong>Antigravity SDK</strong></td><td>Build your own agent flows on the harness.</td></tr>
+                <tr><td><strong>Managed Agents API</strong></td><td>One API call → isolated Linux env w/ agent + tools + code exec. <span class="badge badge-cyan">vs Devin</span></td></tr>
+                <tr><td><strong>Enterprise Agent Platform</strong></td><td>Vertex AI rebrand. 200+ models incl Claude. A2A v1.0 at 150 orgs. MCP via Apigee.</td></tr>
+                <tr><td><strong>Workspace Studio</strong></td><td>No-code agent builder for non-devs. Asana/Jira/Salesforce. Apps Script + webhooks.</td></tr>
+                <tr><td><strong>AI Studio Build Android</strong></td><td>Vibe-code Kotlin + one-click Cloud Run + Firebase deploy. Eats Glide/Adalo/Bubble.</td></tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
 
-      <!-- ============== 10. MODEL LAYER ============== -->
+      <!-- 7. MODEL LAYER -->
       <section>
-        <div class="eyebrow">Model layer · Affects both sides</div>
-        <h2>The Gemini 3.5 family</h2>
+        <div class="eyebrow">Model layer · Both sides</div>
+        <h2>Gemini 3.5 family</h2>
         <table>
           <thead><tr><th>Model</th><th>What changed</th><th>Pricing</th></tr></thead>
           <tbody>
             <tr>
-              <td><strong>Gemini 3.5 Flash</strong><br><span class="badge badge-green">GA May 19</span></td>
-              <td>Beats Gemini 3.1 Pro on Terminal-Bench 2.1 (<strong>76.2%</strong>), GDPval-AA, MCP Atlas (83.6%). 1M context, 64K output, multimodal in.</td>
-              <td><strong>$1.50 / $9.00</strong> per M tokens<br>$0.15 cached input<br>~25% cheaper than 3.1 Pro</td>
+              <td><strong>Gemini 3.5 Flash</strong> <span class="badge badge-green">GA May 19</span></td>
+              <td>Beats 3.1 Pro on Terminal-Bench 2.1 (<strong>76.2%</strong>), GDPval-AA, MCP Atlas (83.6%). 1M context, 64K output.</td>
+              <td><strong>$1.50 / $9.00</strong> per M tokens<br>$0.15 cached · ~25% cheaper than 3.1 Pro</td>
             </tr>
             <tr>
-              <td><strong>Gemini 3.5 Pro</strong><br><span class="badge badge-blue">June 2026</span></td>
+              <td><strong>Gemini 3.5 Pro</strong> <span class="badge badge-blue">June 2026</span></td>
               <td>Larger sibling. Targets Claude Opus 4.x and GPT-5 reasoning tier.</td>
               <td>TBD</td>
             </tr>
             <tr>
               <td><strong>Gemini Omni / Omni Flash</strong></td>
-              <td>Single multimodal backbone — text/image/audio/video in → video out. ~10s clips with audio, physics-aware. In Gemini app, Flow, YouTube Shorts now; API in coming weeks.</td>
+              <td>Single multimodal backbone — text/image/audio/video in → video out. ~10s clips, physics-aware. API coming weeks.</td>
               <td>Included AI Pro / Ultra</td>
             </tr>
             <tr>
@@ -386,321 +352,233 @@
             </tr>
           </tbody>
         </table>
-        <p class="footnote">Implication for cost-sensitive coding agents: Flash at $1.50/$9.00 sets a new price floor that Anthropic Sonnet and OpenAI mid-tier will struggle to match on agentic coding benchmarks.</p>
+        <p class="footnote">Flash at $1.50/$9.00 sets a price floor Anthropic Sonnet and OpenAI mid-tier will struggle to match on agentic coding benchmarks.</p>
       </section>
 
-      <!-- ============== 11. PLAY STORE — DISTRIBUTION OVERHAUL ============== -->
+      <!-- 8. PLAY STORE — COMBINED -->
       <section>
         <span class="kicker">Highest priority for a dev-tools founder</span>
-        <h2>Play Store overhaul · Distribution &amp; discovery</h2>
-        <table class="tight">
-          <thead><tr><th>Feature</th><th>What it does</th><th>Implication</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Play Shorts</strong></td><td>Full-screen portrait video feed in Play Store — TikTok for app discovery. Rolling out US + select devs.</td><td>Discovery becomes a feed. Big lift for apps with good demo footage.</td></tr>
-            <tr><td><strong>Ask Play</strong></td><td>Conversational AI Q&amp;A recommending apps from plain-English prompts. Builds on existing Play Q&amp;A (already 95% of queries).</td><td><strong class="accent-pink">Kills traditional keyword ASO.</strong> Favors apps with rich semantic metadata.</td></tr>
-            <tr><td><strong>Apps in Gemini app</strong></td><td>Apps surface <strong>directly inside the Gemini app</strong> (Android + web) via Engage SDK.</td><td>Play Store no longer the only discovery surface. <strong>Gemini app is the new top-of-funnel.</strong></td></tr>
-            <tr><td><strong>Engage SDK</strong></td><td>30M MAU across surfaces. +45% YoY app opens. Expanding to tablet home Collections; into store listings next month; 80+ markets.</td><td>Re-engagement is becoming mandatory for retention.</td></tr>
-            <tr><td><strong>Play Games Sidekick</strong></td><td>In-game overlay: AI tips, rewards, social ("which friends are playing"), achievements. Live in 100+ titles; all participating titles by summer 2026.</td><td>New platform lock-in layer for games.</td></tr>
-            <tr><td><strong>Gemini in Play Console</strong></td><td>Auto-generates custom store listings tailored to keyword recs. One-click. Expanded chart descriptions. Interactive Q&amp;A. Proactive monetization recs.</td><td>Eats the listings-optimization cottage industry.</td></tr>
-          </tbody>
-        </table>
-      </section>
-
-      <!-- ============== 12. PLAY STORE — MONETIZATION / BILLING / SIDELOAD ============== -->
-      <section>
-        <span class="kicker">Highest priority for a dev-tools founder</span>
-        <h2>Play Store · Billing, monetization, sideload</h2>
-        <div class="grid-2">
+        <h2>Play Store overhaul · Discovery, billing, sideload</h2>
+        <div class="grid-3">
           <div class="card">
-            <h3 class="accent-green">Fee restructuring (post-Epic)</h3>
-            <ul class="tight">
-              <li>Standard: <strong>20%</strong> existing installs / <strong>15%</strong> new installs</li>
+            <h3 class="accent-green">Discovery</h3>
+            <ul class="xtight">
+              <li><strong>Play Shorts</strong> — TikTok-style discovery feed (US + select devs)</li>
+              <li><strong>Ask Play</strong> — conversational Q&amp;A. <span class="accent-pink">Kills keyword ASO.</span></li>
+              <li><strong>Apps in Gemini app</strong> via Engage SDK — Gemini = new top-of-funnel</li>
+              <li><strong>Engage SDK</strong> — 30M MAU, +45% YoY opens, 80+ markets</li>
+              <li><strong>Gemini in Play Console</strong> — auto-generates custom listings</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="accent-blue">Billing &amp; fees</h3>
+            <ul class="xtight">
+              <li>Standard: <strong>20%</strong> existing / <strong>15%</strong> new installs</li>
               <li><strong>Subscriptions: 10%</strong></li>
-              <li>Cosmetic items: 9% · Gameplay-affecting: 20%</li>
-              <li>+5% processing if using Play Billing (US/UK/EU)</li>
-              <li>Fee applies regardless of billing method</li>
-              <li class="accent-orange">Apple's 30/15 now looks predatory by contrast</li>
+              <li>Cosmetic: 9% · Gameplay-affecting: 20%</li>
+              <li>+5% if using Play Billing (US/UK/EU)</li>
+              <li><strong>Billing Library 9.0</strong> (May 19) — single-sprint v8→v9</li>
+              <li>Alt billing + external links permitted US since Jan 28</li>
             </ul>
           </div>
           <div class="card">
-            <h3 class="accent-blue">Play Billing Library 9.0</h3>
-            <ul class="tight">
-              <li>Released May 19, 2026</li>
-              <li>In-app messaging for opt-in price increases</li>
-              <li>Blocked returns: <code>BILLING_UNAVAILABLE</code></li>
-              <li><code>getLinkUri</code> now @Nullable</li>
-              <li>Targets SDK 35</li>
-              <li class="accent-green">Single-sprint migration from v8</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3 class="accent-purple">Alt billing + external links</h3>
-            <ul class="tight">
-              <li>Permitted in US since Jan 28, 2026 post-Epic settlement</li>
-              <li>Devs can show side-by-side pricing</li>
-              <li>Agentic Catalog Management: bulk SKU import + price changes + regional pricing recs</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3 class="accent-pink">Sideloading / Dev Verification</h3>
-            <ul class="tight">
-              <li><strong>Sept 2026:</strong> mandatory dev verification (via Android Developer Console) to sideload in BR, ID, SG, TH. Global rollout follows.</li>
-              <li><strong>Registered Third-Party Stores</strong>: alt stores meeting safety/quality benchmarks get one-click install + fewer warnings — built into Android 17 (likely QPR2, Dec 2026)</li>
+            <h3 class="accent-pink">Sideload / verification</h3>
+            <ul class="xtight">
+              <li><strong>Sept 2026:</strong> mandatory dev verification in BR/ID/SG/TH; global next</li>
+              <li><strong>Registered 3rd-Party Stores</strong> — one-click install + fewer warnings (Android 17 QPR2)</li>
               <li>EU excluded (DMA constraints)</li>
+              <li>Apple's 30/15 now looks predatory</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- ============== 13. INDUSTRY THREATS 1: AI + SEARCH ============== -->
+      <!-- 9. INDUSTRY THREATS -->
       <section>
-        <div class="eyebrow">Industry threats · Part 1 of 3</div>
-        <h2>AI assistants &amp; Search</h2>
+        <div class="eyebrow">Where Google is now competing</div>
+        <h2>Industry threats — weapons &amp; targets</h2>
         <div class="grid-2">
           <div class="card">
-            <h3 class="accent-cyan">AI Assistants — vs OpenAI, Anthropic, Meta, Perplexity</h3>
-            <p><strong>Weapons:</strong> Gemini Spark · Gemini 3.5 Flash · Omni · Ultra $99.99 (cut from $249.99)</p>
-            <p><strong>Most threatened:</strong></p>
-            <ul class="tight">
-              <li>ChatGPT consumer sub — Spark is the direct equivalent at half the price of ChatGPT Pro</li>
-              <li>Perplexity Comet — Chrome + Spark + WebMCP overlap</li>
-              <li>Apple Intelligence — Gemini Intelligence rolling to Pixel + Galaxy</li>
-            </ul>
+            <h3 class="accent-cyan">AI Assistants &amp; Search</h3>
+            <p><strong>Weapons:</strong> Spark · 3.5 Flash · Omni · Ultra $99 · AI Mode (1B MAU) · Info Agents</p>
+            <p><strong>Hits:</strong> ChatGPT (900M WAU), Perplexity Comet, Apple Intelligence</p>
           </div>
           <div class="card">
-            <h3 class="accent-cyan">Search — vs ChatGPT, Perplexity</h3>
-            <p><strong>Weapons:</strong> AI Mode (1B MAU) · AI Overviews (2.5B MAU) · Information Agents · multimodal inputs (image, file, video, Chrome tab)</p>
-            <p><strong>Reality check:</strong></p>
-            <ul class="tight">
-              <li>ChatGPT hit 900M WAU in Feb 2026</li>
-              <li>Google AI Mode roughly at parity but with much larger top-of-funnel via classic Search</li>
-              <li>Threatens ChatGPT's path to becoming default discovery surface</li>
-            </ul>
+            <h3 class="accent-green">App Distribution</h3>
+            <p><strong>Weapons:</strong> Fee cuts 20/15/10/9 · Ask Play · Play Shorts · Apps in Gemini app · Registered Stores</p>
+            <p><strong>Hits:</strong> Apple App Store (pricing pressure) · long-tail alt stores (AltStore, F-Droid) · web app builders</p>
+          </div>
+          <div class="card">
+            <h3 class="accent-purple">Developer Tools</h3>
+            <p><strong>Weapons:</strong> Antigravity 2.0 + CLI + SDK · Managed Agents API · Android Studio Agent Mode · AI Studio · Migration Agent · WebMCP</p>
+            <p><strong>Hits:</strong> Cursor · Copilot · Devin/Cognition · Vercel · Replit</p>
+          </div>
+          <div class="card">
+            <h3 class="accent-orange">Enterprise + Browser/OS</h3>
+            <p><strong>Weapons:</strong> Gemini bundled in Workspace (vs Copilot $30) · Workspace Studio · Enterprise Agent Platform · Chrome auto-browse · WebMCP · Googlebook</p>
+            <p><strong>Hits:</strong> Copilot pricing · Salesforce/ServiceNow/Workday · Safari · Windows · Edge agents</p>
           </div>
         </div>
       </section>
 
-      <!-- ============== 14. INDUSTRY THREATS 2: APP DIST + DEV TOOLS ============== -->
-      <section>
-        <div class="eyebrow">Industry threats · Part 2 of 3</div>
-        <h2>App distribution &amp; developer tools</h2>
-        <div class="grid-2">
-          <div class="card">
-            <h3 class="accent-green">App Distribution — vs Apple, Epic, alt stores, web apps</h3>
-            <p><strong>Weapons:</strong> Fee cuts (20/15/10/9) · AI discovery (Ask Play, Play Shorts) · Apps inside Gemini app · Registered Third-Party Stores program</p>
-            <p><strong>Most threatened:</strong></p>
-            <ul class="tight">
-              <li>Apple App Store — structural pricing pressure</li>
-              <li>Long-tail alt stores (AltStore PAL, F-Droid, Aurora) — Google blesses 1–2 big players</li>
-              <li>Web app builders — Engage SDK + Play Shorts make native stickier</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3 class="accent-purple">Dev Tools — vs Copilot, Cursor, Claude Code, Devin, Vercel</h3>
-            <p><strong>Weapons:</strong> Antigravity 2.0 + CLI + SDK + Managed Agents API · Android Studio Agent Mode · AI Studio Build-an-Android-app · Firebase AI Logic · Migration Agent · Chrome DevTools for agents · WebMCP</p>
-            <p><strong>Most threatened:</strong></p>
-            <ul class="tight">
-              <li>Cursor (Antigravity is the closest analog)</li>
-              <li>GitHub Copilot (Agent Mode in Android Studio ships)</li>
-              <li>Devin/Cognition (Managed Agents API direct)</li>
-              <li>Vercel (Cloud Run one-click + Firebase Studio Figma import)</li>
-              <li>Replit (AI Studio vibe-code + deploy)</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============== 15. INDUSTRY THREATS 3: ENTERPRISE + BROWSER ============== -->
-      <section>
-        <div class="eyebrow">Industry threats · Part 3 of 3</div>
-        <h2>Enterprise productivity &amp; Browser/OS</h2>
-        <div class="grid-2">
-          <div class="card">
-            <h3 class="accent-orange">Enterprise — vs Microsoft 365 + Copilot</h3>
-            <p><strong>Weapons:</strong> Gemini bundled into Workspace at no extra cost (vs Copilot $30/user/mo add-on) · Workspace Studio · Gemini Enterprise Agent Platform (200+ models incl Claude)</p>
-            <p><strong>Most threatened:</strong></p>
-            <ul class="tight">
-              <li>Microsoft Copilot pricing model — Google's "AI included" is a clean positioning attack</li>
-              <li>Salesforce / ServiceNow / Workday — now partners, but Gemini agents in Workspace could disintermediate</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3 class="accent-blue">Browser / OS — vs Apple, Microsoft</h3>
-            <p><strong>Weapons:</strong> Chrome auto-browse + Skills + Gemini in Chrome + <strong>WebMCP</strong> · Googlebook · Android XR</p>
-            <p><strong>Most threatened:</strong></p>
-            <ul class="tight">
-              <li>Safari — auto-browse + WebMCP redefines the browser as agent host</li>
-              <li>Windows — Googlebook is Google's first credible premium laptop play in a decade</li>
-              <li>Edge + Copilot — WebMCP turns the web into an agent-callable API surface; could leapfrog MS agent strategy</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============== 16. WHITE SPACE ============== -->
+      <!-- 10. WHITE SPACE -->
       <section>
         <div class="eyebrow">Opinionated assessment</div>
         <h2>White space — where Google is <em>not</em> investing</h2>
-        <div class="grid-3-tight">
-          <div class="card"><h3 class="accent-green">1. Privacy-first agents</h3><p>Spark runs on Google Cloud VMs. No consumer "never leaves device" story.</p></div>
-          <div class="card"><h3 class="accent-green">2. Voice for developers</h3><p>Gmail Live got voice; Antigravity is text/CLI.</p></div>
-          <div class="card"><h3 class="accent-green">3. Vertical app stores</h3><p>No Play-equivalent for kids, education, healthcare, enterprise-internal.</p></div>
+        <div class="grid-4">
+          <div class="card"><h3 class="accent-green">1. Privacy-first agents</h3><p>Spark runs on Google VMs. No on-device story.</p></div>
+          <div class="card"><h3 class="accent-green">2. Voice for devs</h3><p>Gmail Live got voice; Antigravity is text only.</p></div>
+          <div class="card"><h3 class="accent-green">3. Vertical app stores</h3><p>No Play for kids/edu/health/enterprise-internal.</p></div>
           <div class="card"><h3 class="accent-green">4. App-store-as-a-service</h3><p>No itch.io-for-mobile for indies.</p></div>
-          <div class="card"><h3 class="accent-orange">5. Conversational ASO</h3><p>Ask Play killed keyword ASO; semantic ASO is unbuilt.</p></div>
-          <div class="card"><h3 class="accent-orange">6. Alt-billing rails</h3><p>Post-Epic permits alt billing; no neutral dev-friendly layer that isn't RevenueCat (IAP) or Stripe (web).</p></div>
-          <div class="card"><h3 class="accent-pink">7. Spark Action SDK</h3><p>Canva, OpenTable, Instacart hand-onboarded. No SDK for indie devs to plug into Spark.</p></div>
-          <div class="card"><h3 class="accent-pink">8. Eyewear-native apps</h3><p>XR audio glasses ship Fall 2026 with thin 3rd-party story.</p></div>
-          <div class="card"><h3 class="accent-cyan">9. Agent traffic verification</h3><p>WebMCP creates huge bot/human ambiguity. No Cloudflare-Bot-Mgmt equivalent for agents.</p></div>
-          <div class="card"><h3 class="accent-cyan">10. Long-tail consumer hw</h3><p>Home/Buds/Watch/Nest skipped. Better hubs for stranded Nest devices = lane.</p></div>
-          <div class="card"><h3 class="accent-purple">11. Non-Kotlin Android tooling</h3><p>Migration Agent only migrates <em>into</em> Kotlin. RN/Flutter/KMP devs abandoned.</p></div>
-          <div class="card"><h3 class="accent-purple">12. PWA / web-app discovery</h3><p>Play Shorts + Ask Play centralize native; web apps got nothing.</p></div>
+          <div class="card"><h3 class="accent-orange">5. Conversational ASO</h3><p>Ask Play killed keywords; semantic ASO unbuilt.</p></div>
+          <div class="card"><h3 class="accent-orange">6. Alt-billing rails</h3><p>Post-Epic permits alt billing; no neutral dev layer.</p></div>
+          <div class="card"><h3 class="accent-pink">7. Spark Action SDK</h3><p>Canva/OpenTable hand-onboarded. No public SDK.</p></div>
+          <div class="card"><h3 class="accent-pink">8. Eyewear-native apps</h3><p>XR ships Fall 2026 with thin 3rd-party story.</p></div>
+          <div class="card"><h3 class="accent-cyan">9. Agent traffic verification</h3><p>WebMCP creates bot/human ambiguity. No solution.</p></div>
+          <div class="card"><h3 class="accent-cyan">10. Long-tail consumer hw</h3><p>Home/Buds/Watch/Nest skipped at I/O.</p></div>
+          <div class="card"><h3 class="accent-purple">11. Non-Kotlin tooling</h3><p>Migration Agent only migrates INTO Kotlin.</p></div>
+          <div class="card"><h3 class="accent-purple">12. PWA discovery</h3><p>Play Shorts + Ask Play centralize native only.</p></div>
         </div>
       </section>
 
-      <!-- ============== 17. HEALTH AI GAP ============== -->
+      <!-- 11. HEALTH AI GAP -->
       <section>
         <div class="eyebrow">Research note</div>
         <h2>Health AI · <span class="accent-orange">gap in the I/O 2026 keynote</span></h2>
         <div class="card" style="border-color: rgba(251, 146, 60, 0.3);">
-          <p class="big-cta">Google I/O 2026 did <strong>not</strong> foreground health AI as a headline category. Med-PaLM updates, Fitbit AI, dermatology AI, and Verily news typically ship at Google Health's annual <strong>"The Check Up"</strong> event (usually March) or at Google Cloud Next.</p>
+          <p style="font-size: 0.6em;">Google I/O 2026 did <strong>not</strong> foreground health AI as a headline category. Med-PaLM updates, Fitbit AI, dermatology AI, and Verily news typically ship at Google Health's <strong>"The Check Up"</strong> event (March) or at Google Cloud Next.</p>
         </div>
-        <div style="margin-top: 1em;">
-          <h3 class="accent-cyan">What's worth verifying in a follow-up sweep</h3>
-          <ul class="tight">
-            <li>Whether <strong>MedGemini / Med-PaLM 3</strong> got an update at The Check Up March 2026</li>
-            <li>Whether <strong>Fitbit Premium AI</strong> features were re-announced at I/O</li>
-            <li>Whether <strong>Verily / Google Cloud Healthcare API</strong> got agent integrations via the Enterprise Agent Platform</li>
-            <li>Whether any <strong>Spark integrations</strong> exist for health partners (MyChart, One Medical)</li>
-          </ul>
-        </div>
-        <div class="cta-box" style="margin-top: 0.8em;">
-          <p class="big-cta">Health AI is plausibly white space <em>for I/O timing</em>, but Google Health is a separate motion. Dedicated research sweep available on request.</p>
-        </div>
-      </section>
-
-      <!-- ============== 18. THREATS TO A DEV-TOOLS STARTUP ============== -->
-      <section>
-        <div class="eyebrow">For a developer-tools / app-distribution startup</div>
-        <h2>What Google announced that <span class="accent-pink">directly threatens</span> the space</h2>
-        <ul class="tight">
-          <li><strong>Ask Play + Play Shorts</strong> displace keyword ASO. AppTweak, Sensor Tower, Data.ai workflows need reinvention for semantic + video.</li>
-          <li><strong>Gemini in Play Console</strong> auto-generates store listings — eats the listings-optimization cottage industry.</li>
-          <li><strong>Engage SDK + Apps in Gemini app</strong> — top-of-funnel shifts <em>away</em> from the Play Store. Discovery/install-attribution measurement models break.</li>
-          <li><strong>Agentic catalog management</strong> — eats SKU-management SaaS for IAP-heavy publishers.</li>
-          <li><strong>Play Billing Library 9 + Protected with Play</strong> — squeezes security/anti-fraud SDK vendors (Promon, Approov, Build38).</li>
-          <li><strong>Antigravity 2.0 + CLI + SDK + Managed Agents API</strong> — targets Cursor, Devin, Claude Code, Replit; AI Studio "build an Android app" eats no-code mobile builders (Glide, Adalo, Bubble mobile).</li>
-          <li><strong>Android Studio Migration Agent</strong> — undercuts cross-platform migration consultancies.</li>
-          <li><strong>Developer Verification (Sept 2026)</strong> — raises baseline cost of running an alt store; threatens anonymous F-Droid-style models outside EU.</li>
-        </ul>
-      </section>
-
-      <!-- ============== 19. WEDGE CANDIDATES ============== -->
-      <section>
-        <div class="eyebrow">For a developer-tools / app-distribution startup</div>
-        <h2>Wedges Google <span class="accent-green">left on the table</span></h2>
-        <div class="grid-2">
-          <div class="card"><h3 class="accent-green">1. Semantic / conversational ASO</h3><p>Ask Play is the consumer surface — nobody is selling Ask-Play-optimization-as-a-service. Build the LLM that reverse-engineers Ask Play signals + generates semantic descriptions + Play Shorts video creative.</p></div>
-          <div class="card"><h3 class="accent-green">2. Alt-store-in-a-box</h3><p>Registered Stores is a gate, not a product. Ship the SDK + payments + integrity scaffolding so any publisher (game studio, media co) stands up a registered store in days.</p></div>
-          <div class="card"><h3 class="accent-green">3. Spark Action Marketplace</h3><p>Neutral aggregator/registry for Spark + Apple App Intents + MS Copilot Actions. "Agent App Store."</p></div>
-          <div class="card"><h3 class="accent-green">4. Agent traffic verification on open web</h3><p>WebMCP creates bot/human ambiguity. Cloudflare-Bot-Mgmt for agentic traffic.</p></div>
-          <div class="card"><h3 class="accent-green">5. Cross-platform app-dist analytics</h3><p>Span Play Shorts views + Gemini app surfaces + Engage SDK opens + alt-store installs. Google won't unify this.</p></div>
-          <div class="card"><h3 class="accent-green">6. Vertical coding agents</h3><p>Antigravity is enterprise-oriented. Cursor's "fast, opinionated, IDE-feel" wedge is still defensible; so are game-dev, embedded, and regulated-industry agents.</p></div>
-          <div class="card"><h3 class="accent-green">7. Privacy-first agentic tooling</h3><p>For regulated industries (healthcare, legal, finance) that cannot route through Gemini Spark on Google VMs.</p></div>
-          <div class="card"><h3 class="accent-green">8. Eyewear-first developer SDKs</h3><p>Android XR developer story for glasses is thin. Build the SDK.</p></div>
-        </div>
-      </section>
-
-      <!-- ============== 20. STRATEGIC RECOMMENDATIONS ============== -->
-      <section>
-        <div class="eyebrow">For a developer-tools / app-distribution startup</div>
-        <h2>Strategic recommendations</h2>
-        <ol style="font-size: 0.6em; line-height: 1.6;">
-          <li><strong class="accent-cyan">Pick the post-keyword ASO wedge.</strong> Build LLMs that (a) reverse-engineer Ask Play's recommendation signals, (b) generate semantic descriptions + Q&amp;A optimized for those signals, (c) generate Play Shorts–ready video creative. Wedge: "ASO is dead, semantic discovery is here." Moat: proprietary {query → app recommended} dataset.</li>
-          <li><strong class="accent-cyan">Don't fight Antigravity head-on.</strong> Position as either (a) the <em>non-Google</em> multi-model coding agent (Anthropic + OpenAI + Mistral routing) for teams that won't lock into Gemini, or (b) the <em>vertical</em> coding agent (games, embedded, regulated) Antigravity doesn't reach.</li>
-          <li><strong class="accent-cyan">Build a Spark Action SDK middleware.</strong> Write once, ship to Spark + Apple Intelligence + Copilot Actions. Bonus: usage analytics none of the platforms expose.</li>
-          <li><strong class="accent-cyan">Alt-billing &amp; alt-store toolkit for post-Epic Android.</strong> External-link payments, registered-store onboarding, integrity attestation, fraud monitoring, regional pricing — one SDK.</li>
-          <li><strong class="accent-pink">Avoid:</strong>
-            <ul class="tight">
-              <li>Generic "AI for developers" with no vertical/distribution wedge — Google + Cursor + Anthropic will out-spend you.</li>
-              <li>Building on Gemini CLI (sunset June 18) or Vertex AI branding (renamed).</li>
-              <li>Indie distribution plays in markets where Sept 2026 verification rolls out without a compliance story.</li>
-              <li>PWA / web-app stores — Google chose not to invest, signaling weak demand.</li>
+        <div class="grid-2" style="margin-top: 0.5em;">
+          <div class="card">
+            <h3 class="accent-cyan">Worth verifying in a follow-up sweep</h3>
+            <ul class="xtight">
+              <li><strong>MedGemini / Med-PaLM 3</strong> update at The Check Up March 2026</li>
+              <li><strong>Fitbit Premium AI</strong> features re-announced at I/O</li>
+              <li><strong>Verily / Cloud Healthcare API</strong> agent integrations via Enterprise Agent Platform</li>
+              <li><strong>Spark integrations</strong> for health partners (MyChart, One Medical)</li>
             </ul>
-          </li>
-        </ol>
-      </section>
-
-      <!-- ============== 21. CLOSING ============== -->
-      <section>
-        <div class="eyebrow">The one-paragraph reframe</div>
-        <h2 class="gradient-text">The AI layer eats the app layer</h2>
-        <p style="font-size: 0.7em; line-height: 1.7; color: var(--text-primary); margin-top: 1em;">
-          On <strong class="accent-blue">B2C</strong>, Spark + AI Mode + Information Agents + Apps-inside-Gemini-app collectively make the Gemini surface the new top-of-funnel — Play Store demotes itself in the process. On <strong class="accent-purple">B2B</strong>, Antigravity + Managed Agents + Workspace Studio + Enterprise Agent Platform make Google the default agent infrastructure provider.
-        </p>
-        <div class="cta-box" style="margin-top: 1.5em;">
-          <h3>The four highest-leverage wedges</h3>
-          <p style="font-size: 0.7em; margin-top: 0.5em;">
-            1. <strong>Spark Actions middleware</strong> (no SDK exists yet)<br>
-            2. <strong>Semantic ASO</strong> for the post-keyword Ask Play world<br>
-            3. <strong>Privacy-first agentic tooling</strong> for regulated sectors<br>
-            4. <strong>Alt-billing + alt-store toolkit</strong> for post-Epic Android
-          </p>
+          </div>
+          <div class="cta-box">
+            <h3>Take</h3>
+            <p>Health AI is plausibly white space <em>for I/O timing</em>, but Google Health is a separate motion. Dedicated research sweep available on request.</p>
+          </div>
         </div>
       </section>
 
-      <!-- ============== 22. SOURCES ============== -->
+      <!-- 12. THREATS + WEDGES -->
+      <section>
+        <div class="eyebrow">For a developer-tools / app-distribution startup</div>
+        <h2>Direct threats <span style="color: var(--text-muted); font-weight: 400;">and</span> wedges left on the table</h2>
+        <div class="grid-2">
+          <div class="card" style="border-color: rgba(244, 114, 182, 0.3);">
+            <h3 class="accent-pink">Direct threats</h3>
+            <ul class="xtight">
+              <li><strong>Ask Play + Play Shorts</strong> displace keyword ASO (AppTweak, Sensor Tower, Data.ai)</li>
+              <li><strong>Gemini in Play Console</strong> eats listings-optimization SaaS</li>
+              <li><strong>Engage SDK in Gemini app</strong> — install-attribution measurement breaks</li>
+              <li><strong>Agentic catalog mgmt</strong> eats SKU SaaS for IAP publishers</li>
+              <li><strong>Billing 9 + Protected with Play</strong> squeezes anti-fraud SDKs (Promon, Approov)</li>
+              <li><strong>Antigravity suite + AI Studio</strong> target Cursor, Devin, Replit, no-code mobile</li>
+              <li><strong>Dev Verification (Sept 2026)</strong> raises alt-store baseline cost</li>
+            </ul>
+          </div>
+          <div class="card" style="border-color: rgba(52, 211, 153, 0.3);">
+            <h3 class="accent-green">Wedges Google left on the table</h3>
+            <ul class="xtight">
+              <li><strong>Semantic / conversational ASO</strong> — Ask-Play-optimization-as-a-service</li>
+              <li><strong>Alt-store-in-a-box</strong> — SDK + payments + integrity for publishers</li>
+              <li><strong>Spark Action Marketplace</strong> — neutral registry across Spark / Apple / Copilot</li>
+              <li><strong>Agent traffic verification</strong> — Cloudflare-Bot-Mgmt for WebMCP</li>
+              <li><strong>Cross-platform app-dist analytics</strong> — Play Shorts + Gemini + Engage + alt-stores</li>
+              <li><strong>Vertical coding agents</strong> Antigravity won't reach (game-dev, embedded, regulated)</li>
+              <li><strong>Privacy-first agentic tooling</strong> for sectors that can't route through Google VMs</li>
+              <li><strong>Eyewear-first dev SDKs</strong> — XR developer story is thin</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 13. STRATEGY + CLOSING -->
+      <section>
+        <div class="eyebrow">Recommendations + closing</div>
+        <h2 class="gradient-text">The AI layer eats the app layer</h2>
+        <p style="font-size: 0.6em; line-height: 1.5; color: var(--text-primary);">
+          On <strong class="accent-blue">B2C</strong>, Spark + AI Mode + Info Agents + Apps-in-Gemini-app make the Gemini surface the new top-of-funnel — Play Store demotes itself. On <strong class="accent-purple">B2B</strong>, Antigravity + Managed Agents + Workspace Studio + Enterprise Agent Platform make Google the default agent infra provider.
+        </p>
+        <div class="grid-2" style="margin-top: 0.5em;">
+          <div class="card">
+            <h3 class="accent-cyan">5 strategic moves</h3>
+            <ol style="font-size: 0.5em; line-height: 1.45; padding-left: 1em;">
+              <li><strong>Post-keyword ASO wedge</strong> — reverse-engineer Ask Play signals; gen semantic descriptions + Play Shorts creative. Moat: proprietary {query → app} dataset.</li>
+              <li><strong>Don't fight Antigravity head-on</strong> — go non-Google multi-model OR vertical (game, embedded, regulated).</li>
+              <li><strong>Spark Action SDK middleware</strong> — write once, ship to Spark + Apple + Copilot.</li>
+              <li><strong>Alt-billing + alt-store toolkit</strong> for post-Epic Android.</li>
+              <li><strong>Privacy-first agentic tooling</strong> for sectors that can't route through Google VMs.</li>
+            </ol>
+          </div>
+          <div class="card" style="border-color: rgba(244, 114, 182, 0.3);">
+            <h3 class="accent-pink">Avoid</h3>
+            <ul class="xtight">
+              <li>Generic "AI for developers" — Google + Cursor + Anthropic will out-spend you</li>
+              <li>Building on Gemini CLI (sunset June 18) or Vertex AI branding (renamed)</li>
+              <li>Indie distribution in Sept-2026-verification markets without a compliance story</li>
+              <li>PWA / web-app stores — Google chose not to invest</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 14. SOURCES -->
       <section>
         <div class="eyebrow">Appendix</div>
         <h2>Sources</h2>
         <ul class="source-list">
-          <li><a href="https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/">100 things we announced at Google I/O 2026 — blog.google</a></li>
-          <li><a href="https://blog.google/innovation-and-ai/sundar-pichai-io-2026/">Sundar Pichai I/O 2026 opening keynote</a></li>
-          <li><a href="https://developers.googleblog.com/all-the-news-from-the-google-io-2026-developer-keynote/">I/O 2026 Developer keynote recap</a></li>
-          <li><a href="https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/">Building the agentic future — dev highlights</a></li>
+          <li><a href="https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/">100 things announced at I/O 2026 — blog.google</a></li>
+          <li><a href="https://blog.google/innovation-and-ai/sundar-pichai-io-2026/">Pichai I/O 2026 keynote</a></li>
+          <li><a href="https://developers.googleblog.com/all-the-news-from-the-google-io-2026-developer-keynote/">Developer keynote recap</a></li>
+          <li><a href="https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/">Agentic future — dev highlights</a></li>
           <li><a href="https://android-developers.googleblog.com/2026/05/io-2026-whats-new-in-google-play.html">What's new in Google Play (I/O 2026)</a></li>
-          <li><a href="https://blog.google/feed/google-play-updates-google-io-2026/">Google Play updates from I/O 2026</a></li>
+          <li><a href="https://blog.google/feed/google-play-updates-google-io-2026/">Google Play updates I/O 2026</a></li>
           <li><a href="https://www.revenuecat.com/blog/engineering/play-billing-v9/">Play Billing Library 9.0 — RevenueCat</a></li>
-          <li><a href="https://9to5google.com/2026/05/19/google-io-2026-news/">Everything Google announced — 9to5Google</a></li>
-          <li><a href="https://www.macrumors.com/2026/05/19/google-io-2026-roundup/">Google I/O 2026 Roundup — MacRumors</a></li>
-          <li><a href="https://techcrunch.com/2026/05/19/google-launches-antigravity-2-0-with-an-updated-desktop-app-and-cli-tool-at-io-2026/">Antigravity 2.0 launch — TechCrunch</a></li>
-          <li><a href="https://www.marktechpost.com/2026/05/19/google-launches-antigravity-2-0-at-i-o-2026-a-standalone-agent-first-platform-with-cli-sdk-managed-execution-and-enterprise-support/">Antigravity 2.0 SDK + Managed Agents — MarkTechPost</a></li>
-          <li><a href="https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/">Gemini CLI → Antigravity CLI transition</a></li>
+          <li><a href="https://9to5google.com/2026/05/19/google-io-2026-news/">Everything at I/O — 9to5Google</a></li>
+          <li><a href="https://www.macrumors.com/2026/05/19/google-io-2026-roundup/">I/O 2026 Roundup — MacRumors</a></li>
+          <li><a href="https://techcrunch.com/2026/05/19/google-launches-antigravity-2-0-with-an-updated-desktop-app-and-cli-tool-at-io-2026/">Antigravity 2.0 — TechCrunch</a></li>
+          <li><a href="https://www.marktechpost.com/2026/05/19/google-launches-antigravity-2-0-at-i-o-2026-a-standalone-agent-first-platform-with-cli-sdk-managed-execution-and-enterprise-support/">Antigravity 2.0 SDK — MarkTechPost</a></li>
+          <li><a href="https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/">Gemini CLI → Antigravity CLI</a></li>
           <li><a href="https://techcrunch.com/2026/05/19/google-introduces-gemini-spark-a-24-7-agentic-assistant-with-gmail-integration/">Gemini Spark intro — TechCrunch</a></li>
           <li><a href="https://techcrunch.com/2026/05/19/googles-gemini-omni-turns-images-audio-and-text-into-video-and-thats-just-the-start/">Gemini Omni — TechCrunch</a></li>
-          <li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/">Gemini 3.5: frontier intelligence with action</a></li>
-          <li><a href="https://blog.google/products-and-platforms/products/search/search-io-2026/">Search's I/O 2026 updates</a></li>
-          <li><a href="https://techcrunch.com/2026/05/19/google-search-as-you-know-it-is-over/">Google Search as you know it is over — TC</a></li>
+          <li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/">Gemini 3.5: frontier intelligence</a></li>
+          <li><a href="https://blog.google/products-and-platforms/products/search/search-io-2026/">Search at I/O 2026</a></li>
+          <li><a href="https://techcrunch.com/2026/05/19/google-search-as-you-know-it-is-over/">Search as you know it is over — TC</a></li>
           <li><a href="https://time.com/article/2026/05/20/google-search-ai-internet/">Google Shifts to AI Search — TIME</a></li>
-          <li><a href="https://blog.google/products-and-platforms/platforms/android/android-xr-io-2026/">Intelligent eyewear with Gemini — blog.google</a></li>
-          <li><a href="https://9to5google.com/2026/05/19/google-samsung-android-xr-glasses-styles-release-date/">Android XR glasses Fall 2026 — 9to5G</a></li>
-          <li><a href="https://blog.google/products-and-platforms/platforms/android/material-3-expressive-android-wearos-launch/">Material 3 Expressive redesign</a></li>
-          <li><a href="https://firebase.blog/posts/2026/05/google-io-2026-announcements/">Firebase at Google I/O 2026</a></li>
-          <li><a href="https://android-developers.googleblog.com/2026/05/build-android-apps-google-ai-studio.html">Build native Android apps in AI Studio</a></li>
+          <li><a href="https://blog.google/products-and-platforms/platforms/android/android-xr-io-2026/">Intelligent eyewear with Gemini</a></li>
+          <li><a href="https://9to5google.com/2026/05/19/google-samsung-android-xr-glasses-styles-release-date/">XR glasses Fall 2026 — 9to5G</a></li>
+          <li><a href="https://blog.google/products-and-platforms/platforms/android/material-3-expressive-android-wearos-launch/">Material 3 Expressive</a></li>
+          <li><a href="https://firebase.blog/posts/2026/05/google-io-2026-announcements/">Firebase at I/O 2026</a></li>
+          <li><a href="https://android-developers.googleblog.com/2026/05/build-android-apps-google-ai-studio.html">Build Android apps in AI Studio</a></li>
           <li><a href="https://techcrunch.com/2026/05/19/googles-ai-studio-now-lets-anyone-build-android-apps-in-minutes/">AI Studio builds Android apps — TC</a></li>
-          <li><a href="https://developer.chrome.com/blog/chrome-at-io26">Chrome at I/O 2026 (WebMCP, Prompt API)</a></li>
+          <li><a href="https://developer.chrome.com/blog/chrome-at-io26">Chrome at I/O 2026</a></li>
           <li><a href="https://sdtimes.com/ai/google-i-o-2026-introduces-the-agentic-web-era-with-major-chrome-updates/">The Agentic Web era — SD Times</a></li>
           <li><a href="https://blog.youtube/news-and-events/youtube-news-google-io-2026/">YouTube at I/O 2026</a></li>
-          <li><a href="https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud">Google Cloud innovations from I/O 26</a></li>
-          <li><a href="https://cloud.google.com/blog/topics/developers-practitioners/io26-news-for-agent-developers-on-google-cloud">I/O '26 for agent developers</a></li>
-          <li><a href="https://www.neonpay.com/blog/google-plays-new-u.s.-billing-linking-policies-what-game-developers-need-to-know">Play's new US billing &amp; linking policies</a></li>
+          <li><a href="https://cloud.google.com/blog/products/ai-machine-learning/innovations-from-google-io-26-on-google-cloud">Google Cloud innovations I/O 26</a></li>
+          <li><a href="https://cloud.google.com/blog/topics/developers-practitioners/io26-news-for-agent-developers-on-google-cloud">I/O '26 for agent devs</a></li>
+          <li><a href="https://www.neonpay.com/blog/google-plays-new-u.s.-billing-linking-policies-what-game-developers-need-to-know">Play US billing &amp; linking</a></li>
           <li><a href="https://www.notebookcheck.net/Google-cuts-Play-Store-fees-as-Epic-settlement-reshapes-Android-app-payments.1243278.0.html">Play Store fee cuts post-Epic</a></li>
-          <li><a href="https://android.gadgethacks.com/news/googles-new-android-sideloading-rules-start-august-2026/">New Android sideloading rules</a></li>
+          <li><a href="https://android.gadgethacks.com/news/googles-new-android-sideloading-rules-start-august-2026/">New sideloading rules</a></li>
           <li><a href="https://felloai.com/gemini-pricing/">Gemini Pricing 2026 — Felloai</a></li>
           <li><a href="https://costgoat.com/pricing/gemini-api">Gemini API pricing — costgoat</a></li>
-          <li><a href="https://www.engadget.com/2176896/everything-google-announced-io-2026-gemini-omni-spark/">Engadget missed-from-I/O recap</a></li>
-          <li><a href="https://www.latent.space/p/ainews-google-io-2026-gemini-35-flash">Latent.Space I/O 2026 analysis</a></li>
-          <li><a href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/">8th-gen TPUs (TPU 8t / 8i)</a></li>
+          <li><a href="https://www.engadget.com/2176896/everything-google-announced-io-2026-gemini-omni-spark/">Engadget I/O recap</a></li>
+          <li><a href="https://www.latent.space/p/ainews-google-io-2026-gemini-35-flash">Latent.Space I/O analysis</a></li>
+          <li><a href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/">8th-gen TPUs</a></li>
           <li><a href="https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform">Gemini Enterprise Agent Platform</a></li>
         </ul>
-        <p class="footnote">Caveat: WebFetch was blocked (HTTP 403) on most blog.google and developers.googleblog URLs during the research run. Data above was synthesized from WebSearch result summaries across ~15 searches. Direct primary-source fetches were not possible for most listed URLs.</p>
+        <p class="footnote">Caveat: WebFetch was blocked (HTTP 403) on most blog.google URLs during research. Data synthesized from WebSearch result summaries across ~15 searches.</p>
       </section>
 
     </div>
   </div>
 
-  <!-- reveal.js JS (CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/notes/notes.js"></script>
   <script>
     Reveal.initialize({
       hash: true,
@@ -710,11 +588,10 @@
       progress: true,
       center: false,
       width: 1280,
-      height: 800,
-      margin: 0.04,
+      height: 720,
+      margin: 0.05,
       minScale: 0.2,
-      maxScale: 1.5,
-      plugins: [RevealNotes]
+      maxScale: 1.5
     });
   </script>
 </body>
